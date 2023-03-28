@@ -1,0 +1,17 @@
+return {
+  "phaazon/mind.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = function()
+    require("mind").setup({
+      persistence = {
+        data_dir = "~/.config/nvim/mind/data",
+        state_path = "~/.config/nvim/mind/mind.json",
+      },
+    })
+  end,
+  keys = {
+    { "<leader>mm", ":MindOpenMain<cr>", desc = "Open mind main" },
+    { "<leader>ml", ":MindOpenProject<cr>", desc = "Open mind project" },
+    { "<leader>mc", ":MindClose<cr>", desc = "Close mind" },
+  },
+}
