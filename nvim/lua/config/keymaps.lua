@@ -43,4 +43,6 @@ map("n", "<c-l>", ":TmuxNavigateRight<cr>", { silent = true, noremap = true })
 map("n", "<c-j>", ":TmuxNavigateDown<cr>", { silent = true, noremap = true })
 map("n", "<c-k>", ":TmuxNavigateUp<cr>", { silent = true, noremap = true })
 
-map("n", "<leader>nw", ":Neorg workspace ", { desc = "Select Neorg workspace" })
+map("n", "<leader>nw", ":Neorg workspace work<cr>'", { desc = "Neorg work" })
+map("n", "<leader>nn", ":Neorg workspace notes<cr>", { desc = "Neorg notes" })
+map("n", "<leader>ni", ":Neorg index<cr>", { desc = "Neorg index" })
