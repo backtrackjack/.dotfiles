@@ -17,6 +17,11 @@ return {
           default_workspace = "notes",
         },
       },
+      ["core.norg.completion"] = {
+        config = {
+          engine = "nvim-cmp"
+        }
+      }
     },
   },
   dependencies = { { "nvim-lua/plenary.nvim" } },
