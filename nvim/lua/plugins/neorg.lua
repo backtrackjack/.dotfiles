@@ -2,9 +2,11 @@
 return {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
+  event = "VeryLazy",
   opts = {
     load = {
       ["core.defaults"] = {}, -- loads default behaviour
+      ["core.export"] = {},
       ["core.norg.concealer"] = {}, -- adds pretty icons to your documents
       ["core.norg.dirman"] = { -- manages neorg workspaces
         config = {

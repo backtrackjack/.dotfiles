@@ -2,18 +2,18 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.g.neorg_default_action_create_item = 1
+vim.g.neorg_default_action_create_directory = 1
 
 -- neovide opts
 vim.g.neovide_scroll_animation_length = 0.5
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
-vim.g.ufo_fold_symbols = {open = "A", closed = "B", empty = " ",}
-vim.g.ufo_show_numbers = false
-
 vim.g.intelephense_disabled_client = {'blade'}
 
 vim.opt.syntax = 'off'
 
+vim.opt.autochdir = true
 vim.opt.guifont = { "FantasqueSansMono NF", "h20"}
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
