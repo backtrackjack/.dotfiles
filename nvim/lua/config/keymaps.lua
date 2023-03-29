@@ -28,9 +28,6 @@ map('v', 'Y', 'myY`y')
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
--- Paste replace visual selection without copying it
-map('v', 'p', '"_dP')
-
 -- Easy insertion of a trailing ; or , from insert mode
 map('i', ';;', '<Esc>A;<Esc')
 map('i', ',,', '<Esc>A,<Esc')
@@ -46,3 +43,5 @@ map("n", "<c-k>", ":TmuxNavigateUp<cr>", { silent = true, noremap = true })
 map("n", "<leader>nw", ":Neorg workspace work<cr>'", { desc = "Neorg work" })
 map("n", "<leader>nn", ":Neorg workspace notes<cr>", { desc = "Neorg notes" })
 map("n", "<leader>ni", ":Neorg index<cr>", { desc = "Neorg index" })
+map("n", "<leader>nt", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-concealer" })
+map("n", "<leader>np", ":Neorg export to-file export.md<cr>:e export.md<cr>:MarkdownPreview<cr>", { desc = "Neorg preview" })
