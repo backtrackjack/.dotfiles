@@ -7,7 +7,15 @@ return {
     load = {
       ["core.defaults"] = {}, -- loads default behaviour
       ["core.export"] = {},
-      ["core.norg.concealer"] = {}, -- adds pretty icons to your documents
+      ["core.norg.concealer"] = {
+        config = {
+          icon_preset = "varied",
+          dim_code_blocks = {
+            enabled = true,
+            padding = { left = 1 },
+          }
+        }
+      }, -- adds pretty icons to your documents
       ["core.norg.dirman"] = { -- manages neorg workspaces
         config = {
           workspaces = {
