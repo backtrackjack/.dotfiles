@@ -44,4 +44,14 @@ map("n", "<leader>nw", ":Neorg workspace work<cr>'", { desc = "Neorg work" })
 map("n", "<leader>nn", ":Neorg workspace notes<cr>", { desc = "Neorg notes" })
 map("n", "<leader>ni", ":Neorg index<cr>", { desc = "Neorg index" })
 map("n", "<leader>nt", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-concealer" })
-map("n", "<leader>np", ":Neorg export to-file export.md<cr>:e export.md<cr>:MarkdownPreview<cr>", { desc = "Neorg preview" })
+-- map("n", "<leader>np", ":Neorg export to-file export.md<cr>:e export.md<cr>:MarkdownPreview<cr>", { desc = "Neorg preview" })
+
+function neorg_preview()
+  local temp_file = vim.fn.tempname() .. ".md"
+  vim.cmd("Neorg export to-file " .. temp_file)
+  vim.cmd("edit " .. temp_file)
+  vim.cmd("MarkdownPreview")
+  os.remove(temp_file)
+end
+vim.api.nvim_command('command! NeorgPreview lua neorg_preview()')
+vim.api.nvim_set_keymap("n", "<leader>np", ":NeorgPreview<cr>", { noremap = true, silent = true })
