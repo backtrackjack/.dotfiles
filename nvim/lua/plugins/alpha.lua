@@ -27,9 +27,9 @@ return {
       github.com   | !___! .___!
     /backtrackjack !_______!
     ]]
-    dashboard.section.header.val = vim.split(logo, "\n") 
+    dashboard.section.header.val = vim.split(logo, "\n")
     dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+      -- dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
       dashboard.button("n", " " .. " Notes"    , ":Neorg index <CR>")         ,
       dashboard.button("c", " " .. " Config"   , ":e $MYVIMRC <CR>")          ,
       dashboard.button("q", " " .. " Quit"     , ":qa<CR>")                   ,
@@ -40,7 +40,7 @@ return {
     end
     dashboard.section.footer.opts.hl = "Type"
     dashboard.section.header.opts.hl = "String"
-    dashboard.opts.layout[1].val = 5
+    dashboard.opts.layout[1].val = 2
     return dashboard
   end,
   config = function(_, dashboard)

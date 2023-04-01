@@ -2,9 +2,17 @@
 return {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
+  event = "VimEnter",
   opts = {
     load = {
       ["core.defaults"] = {}, -- loads default behaviour
+      ["core.keybinds"] = {
+        config = {
+          hook = function(keybinds)
+            keybinds.unmap("norg", "n", "nt")
+          end,
+        }
+      },
       ["core.export"] = {},
       ["core.norg.concealer"] = {
         config = {
@@ -12,8 +20,8 @@ return {
           dim_code_blocks = {
             enabled = true,
             padding = { left = 1 },
-          }
-        }
+          },
+        },
       }, -- adds pretty icons to your documents
       ["core.norg.dirman"] = { -- manages neorg workspaces
         config = {
@@ -26,9 +34,9 @@ return {
       },
       ["core.norg.completion"] = {
         config = {
-          engine = "nvim-cmp"
-        }
-      }
+          engine = "nvim-cmp",
+        },
+      },
     },
   },
   dependencies = { { "nvim-lua/plenary.nvim" } },

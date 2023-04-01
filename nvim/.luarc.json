@@ -71,5 +71,12 @@
         "/Users/jsellars/.local/share/nvim/lazy/neoconf.nvim/types/lua",
         "/Users/jsellars/.config/nvim/lua",
         "${3rd}/luv/library"
+    ],
+    "diagnostics.disable": [
+        "missing-parameter",
+        "need-check-nil"
+    ],
+    "diagnostics.globals": [
+        "neorg_preview"
     ]
 }

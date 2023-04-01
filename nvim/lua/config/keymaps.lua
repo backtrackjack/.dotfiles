@@ -29,8 +29,8 @@ map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Easy insertion of a trailing ; or , from insert mode
-map('i', ';;', '<Esc>A;<Esc')
-map('i', ',,', '<Esc>A,<Esc')
+map('i', ';;', '<Esc>A;<Esc>')
+map('i', ',,', '<Esc>A,<Esc>')
 
 -- Disable annoying command line thing
 map('n', 'q:', ':q<cr>')
@@ -40,11 +40,10 @@ map("n", "<c-l>", ":TmuxNavigateRight<cr>", { silent = true, noremap = true })
 map("n", "<c-j>", ":TmuxNavigateDown<cr>", { silent = true, noremap = true })
 map("n", "<c-k>", ":TmuxNavigateUp<cr>", { silent = true, noremap = true })
 
-map("n", "<leader>nw", ":Neorg workspace work<cr>'", { desc = "Neorg work" })
 map("n", "<leader>nn", ":Neorg workspace notes<cr>", { desc = "Neorg notes" })
-map("n", "<leader>ni", ":Neorg index<cr>", { desc = "Neorg index" })
-map("n", "<leader>nt", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-concealer" })
--- map("n", "<leader>np", ":Neorg export to-file export.md<cr>:e export.md<cr>:MarkdownPreview<cr>", { desc = "Neorg preview" })
+map("n", "<leader>nw", ":Neorg workspace work<cr>", { desc = "Neorg work" })
+map("n", "<leader>nc", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-concealer" })
+map("n", "<leader>nt", ":Neorg toc<cr>", { desc = "Neorg table of contents" })
 
 function neorg_preview()
   local temp_file = vim.fn.tempname() .. ".md"
@@ -54,4 +53,4 @@ function neorg_preview()
   os.remove(temp_file)
 end
 vim.api.nvim_command('command! NeorgPreview lua neorg_preview()')
-vim.api.nvim_set_keymap("n", "<leader>np", ":NeorgPreview<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>np", ":NeorgPreview<cr>", { noremap = true, silent = true, desc = "Neorg Preview" })
