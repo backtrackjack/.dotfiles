@@ -1,0 +1,21 @@
+gui:
+  commandLogSize: 20
+  # use the mocha catpuccin theme
+  theme:
+    activeBorderColor:
+      - "#a6e3a1" # Green
+      - bold
+    cherryPickedCommitBgColor:
+      - "#94e2d5" # Teal
+    cherryPickedCommitFgColor:
+      - "#89b4fa" # Blue
+    inactiveBorderColor:
+      - "#cdd6f4" # Text
+    optionsTextColor:
+      - "#89b4fa" # Blue
+    selectedLineBgColor:
+      - "#313244" # Surface0
+    selectedRangeBgColor:
+      - "#313244" # Surface0
+    unstagedChangesColor:
+      - red # Red
