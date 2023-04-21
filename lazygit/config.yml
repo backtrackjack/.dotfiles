@@ -1,6 +1,5 @@
 gui:
   commandLogSize: 20
-  # use the mocha catpuccin theme
   theme:
     activeBorderColor:
       - "#a6e3a1" # Green
@@ -13,9 +12,5 @@ gui:
       - "#cdd6f4" # Text
     optionsTextColor:
       - "#89b4fa" # Blue
-    selectedLineBgColor:
-      - "#313244" # Surface0
-    selectedRangeBgColor:
-      - "#313244" # Surface0
     unstagedChangesColor:
-      - red # Red
+      - red       # Red
