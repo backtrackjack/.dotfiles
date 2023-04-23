@@ -2,13 +2,16 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    plugins = { spelling = false },
+      plugins = { spelling = false },
+      triggers_blacklist = {
+          n = { "v" }
+      },
   },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
     wk.register({
-      mode = { "n", "v" },
+      mode = { "n" },
       ["g"] = { name = "+goto" },
       ["gz"] = { name = "+surround" },
       ["]"] = { name = "+next" },

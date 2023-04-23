@@ -13,6 +13,13 @@ vim.g.intelephense_disabled_client = {'blade'}
 
 vim.opt.syntax = 'off'
 
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldmethod = 'indent'
+
+vim.opt.conceallevel = 0
+vim.opt.colorcolumn = '80'
 vim.opt.autochdir = true
 vim.opt.guifont = { "FantasqueSansMono NF", "h20"}
 vim.opt.shiftwidth = 4

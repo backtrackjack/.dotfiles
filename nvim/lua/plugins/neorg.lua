@@ -14,7 +14,7 @@ return {
         }
       },
       ["core.export"] = {},
-      ["core.norg.concealer"] = {
+      ["core.concealer"] = {
         config = {
           icon_preset = "varied",
           dim_code_blocks = {
@@ -23,7 +23,7 @@ return {
           },
         },
       }, -- adds pretty icons to your documents
-      ["core.norg.dirman"] = { -- manages neorg workspaces
+      ["core.dirman"] = { -- manages neorg workspaces
         config = {
           workspaces = {
             notes = "~/.dotfiles/neorg/notes",
@@ -32,7 +32,7 @@ return {
           default_workspace = "notes",
         },
       },
-      ["core.norg.completion"] = {
+      ["core.completion"] = {
         config = {
           engine = "nvim-cmp",
         },

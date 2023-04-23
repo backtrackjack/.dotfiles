@@ -3,8 +3,6 @@ return {
   build = "cd app && npm install",
   init = function()
     vim.g.mkdp_filetypes = { "markdown" }
+    vim.g.vim_markdown_no_default_key_mappings = 1
   end,
-  -- config = function()
-  --   vim.keymap.set("n", "<Leader>mp", "<Plug>MarkdownPreview", { desc = "Markdown Preview" })
-  -- end,
 }

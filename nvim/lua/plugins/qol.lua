@@ -1,61 +1,69 @@
 return {
-  -- try use ctrl-c instead
-  -- {
-  --   "max397574/better-escape.nvim",
-  --   config = function()
-  --     require("better_escape").setup({
-  --       mapping = { "jk", "kj" },
-  --       keys = function()
-  --         return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<esc>l" or "<esc>"
-  --       end,
-  --     })
-  --   end,
-  -- },
+    -- try use ctrl-c instead
+    -- {
+    --   "max397574/better-escape.nvim",
+    --   config = function()
+    --     require("better_escape").setup({
+    --       mapping = { "jk", "kj" },
+    --       keys = function()
+    --         return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<esc>l" or "<esc>"
+    --       end,
+    --     })
+    --   end,
+    -- },
+    {
+        "chrishrb/gx.nvim",
+        event = { "BufEnter" },
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = true
+    },
 
-  {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
-  },
+    {
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
+        keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+        config = true,
+    },
 
-  {
-    "tommcdo/vim-lion",
-    config = function()
-      vim.g.lion_squeeze_spaces = 1
-    end,
-  },
+    {
+        "tommcdo/vim-lion",
+        config = function()
+            vim.g.lion_squeeze_spaces = 1
+        end,
+    },
 
-  {
-    "echasnovski/mini.splitjoin",
-    version = false,
-    config = function()
-      require("mini.splitjoin").setup()
-    end,
-  },
+    {
+        "echasnovski/mini.splitjoin",
+        version = false,
+        config = function()
+            require("mini.splitjoin").setup()
+        end,
+    },
 
-  { "whatyouhide/vim-textobj-xmlattr", lazy = false, dependencies = { "kana/vim-textobj-user" } },
+    { "whatyouhide/vim-textobj-xmlattr", lazy = false,                         dependencies = { "kana/vim-textobj-user" } },
+    { "mbbill/undotree" },
 
-  { "mbbill/undotree" },
+    { "RishabhRD/nvim-cheat.sh",         dependencies = { "RishabhRD/popfix" } },
 
-  { "RishabhRD/nvim-cheat.sh", dependencies = { "RishabhRD/popfix" } },
+    {
+        "christoomey/vim-tmux-navigator",
+        event = "VimEnter",
+        init = function()
+            vim.g.tmux_navigator_no_mappings = 1
+        end,
+    },                     -- supposed to let you navigate tmux panes same as in nvim
 
-  { "tpope/vim-sleuth", event = "VeryLazy" }, -- smart indentation
+    { "sickill/vim-pasta" }, -- smart formatting on paste
 
-  {
-    "christoomey/vim-tmux-navigator",
-    event = "VimEnter",
-    init = function()
-      vim.g.tmux_navigator_no_mappings = 1
-    end,
-  }, -- supposed to let you navigate tmux panes same as in nvim
+    {
+        "preservim/vim-markdown",
+        config = function()
+            vim.g.vim_markdown_folding_disabled = 1
+        end,
+    },
+    {
+        "airblade/vim-rooter",
+    }
 
-  { "sickill/vim-pasta" }, -- smart formatting on paste
 
-  {
-    "preservim/vim-markdown",
-    config = function()
-      vim.g.vim_markdown_folding_disabled = 1
-    end,
-  },
 }

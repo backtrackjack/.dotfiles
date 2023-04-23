@@ -16,6 +16,20 @@ end
 
 map("i", "<C-c>", "<Esc>")
 
+map(
+    "n",
+    "<leader>fF",
+    ":lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true })<cr>",
+    { noremap = true, silent = true }
+)
+
+-- move lines in visual mode
+map('v', 'J', ":m '>+1<cr>gv=gv")
+map('v', 'K', ":m '<-2<cr>gv=gv")
+
+-- undo tree
+map('n', '<leader>ut', ':UndotreeToggle<cr>')
+
 -- Reselect visual selection after indenting
 map('v', '<', '<gv')
 map('v', '>', '>gv')
@@ -33,7 +47,7 @@ map('i', ';;', '<Esc>A;<Esc>')
 map('i', ',,', '<Esc>A,<Esc>')
 
 -- Disable annoying command line thing
-map('n', 'q:', ':q<cr>')
+map({ 'n' }, 'q:', ':q<cr>')
 
 map("n", "<c-h>", ":TmuxNavigateLeft<cr>", { silent = true, noremap = true })
 map("n", "<c-l>", ":TmuxNavigateRight<cr>", { silent = true, noremap = true })
@@ -43,7 +57,7 @@ map("n", "<c-k>", ":TmuxNavigateUp<cr>", { silent = true, noremap = true })
 map("n", "<leader>nn", ":Neorg workspace notes<cr>", { desc = "Neorg notes" })
 map("n", "<leader>nw", ":Neorg workspace work<cr>", { desc = "Neorg work" })
 map("n", "<leader>nc", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-concealer" })
-map("n", "<leader>nt", ":Neorg toc<cr>", { desc = "Neorg table of contents" })
+map("n", "<leader>nt", ":Neorg toc qflist<cr>", { desc = "Neorg table of contents" })
 
 function neorg_preview()
   local temp_file = vim.fn.tempname() .. ".md"
