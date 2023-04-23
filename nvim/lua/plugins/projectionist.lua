@@ -23,8 +23,35 @@ return {
                     type = 'test',
                     alternate = 'app/{}.php'
                 },
+                ['app/Http/Livewire/*.php'] = {
+                    type = 'livewire',
+                    alternate = {
+                        'resources/views/livewire/{snakecase|hyphenate}.blade.php',
+                    }
+                },
+                ['resources/views/livewire/*.blade.php'] = {
+                    type = 'livewire-view',
+                    alternate = {
+                        'app/Http/Livewire/{capitalize|camelcase}.php',
+                    }
+                },
+                ['app/View/Components/*.php'] = {
+                    type = 'component',
+                    alternate = {
+                        'resources/views/components/{snakecase|hyphenate}.blade.php',
+                    }
+                },
+                ['resources/views/components/*.blade.php'] = {
+                    type = 'component-view',
+                    alternate = {
+                        'app/View/Components/{capitalize|camelcase}.php'
+                    }
+                },
                 ['app/Models/*.php'] = {
                     type = 'model',
+                },
+                ['resources/views/*.php'] = {
+                    type = 'view',
                 },
                 ['app/Http/Controllers/*.php'] = {
                     type = 'controller'
