@@ -9,7 +9,7 @@ return {
                 icon = '| ',
                 style = "icon",
             },
-            diagnastics = "nvim_lsp",
+            diagnostics = "nvim_lsp",
             diagnostics_indicator = function(_, _, diag)
                 local icons = require("lazyvim.config").icons.diagnostics
                 local ret = (diag.error and icons.Error .. diag.error .. " " or "")
@@ -27,7 +27,7 @@ return {
                     text_align = "left",
                 },
             },
-            separator_style = "thick",
+            separator_style = "thin",
         },
         highlights = {
             fill = {
