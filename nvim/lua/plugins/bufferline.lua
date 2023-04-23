@@ -4,6 +4,7 @@ return {
     event = "VeryLazy",
     opts = {
         options = {
+            always_show_bufferline = true,
             indicator = {
                 icon = '| ',
                 style = "icon",
@@ -29,6 +30,9 @@ return {
             separator_style = "thick",
         },
         highlights = {
+            fill = {
+                bg = "#1b1b1b"
+            },
             indicator_selected = {
                 fg = {
                     attribute = "fg",
