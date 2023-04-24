@@ -7,7 +7,7 @@ weather=$(curl -s "https://wttr.in/?format=1")
 if [[ $weather =~ \+([0-9]+) ]]; then
     temperature="${BASH_REMATCH[1]}"
 else
-    echo "#[fg=#a6e3a1]${weather}" # Default color
+    echo "#[fg=#00BFFF]${weather}" # Must be cold
     exit 0
 fi
 
