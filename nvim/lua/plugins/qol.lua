@@ -40,7 +40,12 @@ return {
         end,
     },
 
-    { "whatyouhide/vim-textobj-xmlattr", lazy = false,                         dependencies = { "kana/vim-textobj-user" } },
+    {
+        "whatyouhide/vim-textobj-xmlattr",
+        lazy = false,
+        dependencies = { "kana/vim-textobj-user" }
+    },
+
     { "mbbill/undotree" },
 
     { "RishabhRD/nvim-cheat.sh",         dependencies = { "RishabhRD/popfix" } },
@@ -61,8 +66,14 @@ return {
             vim.g.vim_markdown_folding_disabled = 1
         end,
     },
+
     {
         "airblade/vim-rooter",
+    },
+
+    {
+        "glts/vim-textobj-comment",
+        dependencies = { "kana/vim-textobj-user" }
     }
 
 
