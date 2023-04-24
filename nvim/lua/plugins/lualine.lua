@@ -28,7 +28,17 @@ return {
                         right_padding = 2
                     }
                 },
-                lualine_b = { "branch" },
+                lualine_b = {
+                    { "branch" },
+                    {
+                        "diff",
+                        symbols = {
+                            added = icons.git.added,
+                            modified = icons.git.modified,
+                            removed = icons.git.removed,
+                        },
+                    },
+                },
                 lualine_c = {
                     {
                         "filetype",
@@ -71,14 +81,6 @@ return {
                         color = fg("Constant"),
                     },
                     { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
-                    {
-                        "diff",
-                        symbols = {
-                            added = icons.git.added,
-                            modified = icons.git.modified,
-                            removed = icons.git.removed,
-                        },
-                    },
                 },
                 lualine_y = {
                     { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
