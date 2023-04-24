@@ -12,7 +12,7 @@ return {
                     filetypes = { "php" },
                     ignore_filetypes = { "blade" },
                     on_attach = function(client, bufnr)
-                        local filetypes = { "php", "blade" }
+                        local filetypes = { "php" }
                         if vim.fn.index(filetypes, vim.bo.filetype) ~= -1 then
                             client.server_capabilities.documentFormattingProvider = false
                             client.server_capabilities.documentFormattingRangeProvider = false
