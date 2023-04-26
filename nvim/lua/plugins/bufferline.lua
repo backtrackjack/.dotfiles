@@ -34,7 +34,7 @@ return {
                         { text = '    ', fg = '#8fff6d' },
                     }
                 end
-            }
+            },
         },
         highlights = {
             fill = {
