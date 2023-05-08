@@ -48,8 +48,6 @@ return {
 
     { "mbbill/undotree" },
 
-    { "RishabhRD/nvim-cheat.sh",         dependencies = { "RishabhRD/popfix" } },
-
     {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",

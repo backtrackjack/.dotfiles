@@ -8,12 +8,4 @@ return {
       return true
     end,
   },
-  {
-    "ggandor/flit.nvim",
-    enabled = false
-  },
-  {
-    "SmiteshP/nvim-navic",
-    enabled = false
-  }
 }
