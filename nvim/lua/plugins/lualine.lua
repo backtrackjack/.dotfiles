@@ -62,6 +62,19 @@ return {
                     },
                 },
                 lualine_x = {
+                    {
+                        function()
+                            local clients = vim.lsp.buf_get_clients(0)
+                            if not clients or #clients == 0 then
+                                return ""
+                            end
+                            local active_servers = {}
+                            for _, client in ipairs(clients) do
+                                table.insert(active_servers, client.name)
+                            end
+                            return "[" .. table.concat(active_servers, ", ") .. "]"
+                        end
+                    },
                     -- stylua: ignore
                     {
                         function() return "  " .. require("dap").status() end,
