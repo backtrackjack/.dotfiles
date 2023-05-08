@@ -15,10 +15,9 @@ vim.api.nvim_command("augroup END")
 
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("notes_docs_config"),
-    pattern = { "gitcommit", "markdown", "norg" },
+    pattern = { "gitcommit", "markdown", "norg", "org", "text", "vimwiki" },
     callback = function()
         vim.opt_local.wrap = true
-        vim.opt_local.spell = true
         vim.opt_local.conceallevel = 1
         vim.opt_local.colorcolumn = ''
     end,
