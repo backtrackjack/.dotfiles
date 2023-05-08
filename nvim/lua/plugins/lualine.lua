@@ -95,14 +95,11 @@ return {
                     },
                     { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
                 },
-                lualine_y = {
-                    { "progress", separator = { left = '' }, padding = { left = 1, right = 1 } },
-                    { "location" },
-                },
+                lualine_y = {},
                 lualine_z = {
                     {
                         "filename",
-                        separator = { right = '' },
+                        separator = { left = '', right = '' },
                         padding = { left = 1, right = 1 }
                     }
                 }
