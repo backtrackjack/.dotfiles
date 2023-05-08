@@ -4,23 +4,35 @@
 local Util = require("lazyvim.util")
 
 local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
+    local keys = require("lazy.core.handler").handlers.keys
+    ---@cast keys LazyKeysHandler
+    -- do not create the keymap if a lazy keys handler exists
+    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+        opts = opts or {}
+        opts.silent = opts.silent ~= false
+        vim.keymap.set(mode, lhs, rhs, opts)
+    end
 end
 
 map("i", "<C-c>", "<Esc>")
+map("n", "<leader><leader>", "<c-^>", { desc = "other buffer" })
 
+-- find _all_ files
 map(
     "n",
     "<leader>fF",
     ":lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true })<cr>",
     { noremap = true, silent = true }
+)
+
+-- search open buffers
+map('n', '<leader>b',
+    function()
+        require('telescope.builtin').buffers({
+            sort_mru = true,
+            ignore_current_buffer = true,
+        })
+    end
 )
 
 -- move lines in visual mode
@@ -60,11 +72,12 @@ map("n", "<leader>nc", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-con
 map("n", "<leader>nt", ":Neorg toc qflist<cr>", { desc = "Neorg table of contents" })
 
 function neorg_preview()
-  local temp_file = vim.fn.tempname() .. ".md"
-  vim.cmd("Neorg export to-file " .. temp_file)
-  vim.cmd("edit " .. temp_file)
-  vim.cmd("MarkdownPreview")
-  os.remove(temp_file)
+    local temp_file = vim.fn.tempname() .. ".md"
+    vim.cmd("Neorg export to-file " .. temp_file)
+    vim.cmd("edit " .. temp_file)
+    vim.cmd("MarkdownPreview")
+    os.remove(temp_file)
 end
+
 vim.api.nvim_command('command! NeorgPreview lua neorg_preview()')
 vim.api.nvim_set_keymap("n", "<leader>np", ":NeorgPreview<cr>", { noremap = true, silent = true, desc = "Neorg Preview" })
