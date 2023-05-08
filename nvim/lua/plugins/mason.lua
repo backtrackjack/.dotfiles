@@ -10,6 +10,9 @@ return {
             "rust-analyzer",
             "rustfmt",
             "blade-formatter",
+            "alex",
+            "proselint",
+            "write-good"
         },
         automatic_installation = false,
     }

@@ -17,13 +17,10 @@ return {
                 nls.builtins.diagnostics.rubocop,
                 nls.builtins.diagnostics.php,
                 nls.builtins.diagnostics.alex.with({
-                    extra_filetypes = { "norg" },
                 }),
                 nls.builtins.diagnostics.write_good.with({
-                    extra_filetypes = { "norg" },
                 }),
                 nls.builtins.diagnostics.proselint.with({
-                    extra_filetypes = { "norg" },
                 }),
             }
         }
