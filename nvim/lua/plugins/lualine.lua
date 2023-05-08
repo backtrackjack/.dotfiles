@@ -84,9 +84,15 @@ return {
                 },
                 lualine_y = {
                     { "progress", separator = { left = '' }, padding = { left = 1, right = 1 } },
-                    { "location", separator = { right = '' }, padding = { left = 1, right = 1 } },
+                    { "location" },
                 },
-                lualine_z = {}
+                lualine_z = {
+                    {
+                        "filename",
+                        separator = { right = '' },
+                        padding = { left = 1, right = 1 }
+                    }
+                }
             },
             extensions = { "neo-tree", "lazy" },
         }
