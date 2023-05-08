@@ -1,8 +1,15 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        dependencies = { "folke/neoconf.nvim" },
         opts = {
             autoformat = false,
+            diagnostics = {
+                enable = true,
+                signs = true,
+                underline = true,
+                virtual_text = false,
+            },
             servers = {
                 tailwindcss = {
                     filetypes = { "html", "css", "scss", "javascript", "typescript", "vue", "blade" },
