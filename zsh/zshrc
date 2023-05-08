@@ -169,3 +169,5 @@ eval "$(rbenv init - zsh)"
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 eval $(thefuck --alias)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
