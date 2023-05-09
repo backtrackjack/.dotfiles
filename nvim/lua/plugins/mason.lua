@@ -7,6 +7,7 @@ return {
             "stylua",
             "flake8",
             "shfmt",
+            "intelephense",
             "rust-analyzer",
             "rustfmt",
             "blade-formatter",

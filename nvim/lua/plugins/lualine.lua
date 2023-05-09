@@ -24,7 +24,7 @@ return {
                 lualine_a = {
                     {
                         "mode",
-                        separator = { left = '' },
+                        separator = { left = '', right = '' },
                         right_padding = 2
                     }
                 },
@@ -92,6 +92,7 @@ return {
                 lualine_z = {
                     {
                         "filename",
+                        path = 1,
                         separator = { left = '', right = '' },
                         padding = { left = 1, right = 1 }
                     },

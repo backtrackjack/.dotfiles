@@ -13,13 +13,26 @@ return {
             "tpope/vim-dispatch",
         }
     },
+    -- plugin to "goto" laravel blade components, could be interesting when it works
+    -- {
+    --     "ccaglak/larago.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     config = function()
+    --         vim.keymap.set("n", "<leader>gf", "<cmd>GoBlade<cr>")
+    --     end
+    -- },
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = 'v2.x',
         dependencies = {
 
             --lsp support
-            { "neovim/nvim-lspconfig" },
+            {
+                "neovim/nvim-lspconfig",
+                opts = { autoformat = false }
+            },
             { "williamboman/mason.nvim", },
             { 'williamboman/mason-lspconfig.nvim' },
 

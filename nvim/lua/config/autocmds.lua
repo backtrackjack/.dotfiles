@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("no_colorcolumn_html"),
-    pattern = { "html", "blade", "eruby"},
+    pattern = { "html", "blade", "eruby" },
     callback = function()
         vim.opt_local.colorcolumn = ''
     end,
@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufEnter", {
     group = augroup("no_nl_comment"),
     callback = function()
-        vim.opt.formatoptions:remove {"c", "r", "o"}
+        vim.opt.formatoptions:remove { "c", "r", "o" }
     end, -- disable comment on new line
 })
 
