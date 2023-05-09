@@ -6,7 +6,7 @@ return {
             "<leader>zz",
             function()
                 require("twilight").setup {
-                    context = 10,
+                    context = -1,
                     treesitter = true,
                 }
                 require("zen-mode").setup {
