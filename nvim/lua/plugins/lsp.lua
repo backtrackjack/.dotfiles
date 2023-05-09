@@ -20,7 +20,6 @@ return {
             { 'hrsh7th/nvim-cmp', },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'hrsh7th/cmp-emoji' },
             { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
@@ -30,4 +29,14 @@ return {
             { 'rafamadriz/friendly-snippets' }
         }
     },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = { "hrsh7th/cmp-emoji" },
+        ---@param opts cmp.ConfigSchema
+        opts = function(_, opts)
+            local cmp = require("cmp")
+            opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+        end
+    }
+
 }
