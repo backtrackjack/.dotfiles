@@ -41,13 +41,6 @@ return {
                 },
                 lualine_c = {
                     {
-                        "filetype",
-                        icon_only = true,
-                        separator = "",
-                        padding = {
-                            left = 1, right = 0 }
-                    },
-                    {
                         "diagnostics",
                         symbols = {
                             error = icons.diagnostics.Error,
@@ -101,7 +94,14 @@ return {
                         "filename",
                         separator = { left = '', right = '' },
                         padding = { left = 1, right = 1 }
-                    }
+                    },
+                    {
+                        "filetype",
+                        icon_only = true,
+                        separator = { right = '' },
+                        padding = { left = 1, right = 1 },
+                        color = { bg = 'white' },
+                    },
                 }
             },
             extensions = { "neo-tree", "lazy" },
