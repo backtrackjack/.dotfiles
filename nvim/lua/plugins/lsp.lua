@@ -7,6 +7,13 @@ return {
         }
     },
     {
+        "tpope/vim-rails",
+        dependencies = {
+            "tpope/vim-bundler",
+            "tpope/vim-dispatch",
+        }
+    },
+    {
         "VonHeikemen/lsp-zero.nvim",
         branch = 'v2.x',
         dependencies = {
