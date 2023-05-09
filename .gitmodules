@@ -1,0 +1,3 @@
+[submodule "notes"]
+    path = neorg
+    url = git@github.com:backtrackjack/notes.git
