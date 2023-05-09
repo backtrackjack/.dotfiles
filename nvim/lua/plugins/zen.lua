@@ -4,7 +4,7 @@ return {
     config = function()
         vim.keymap.set("n", "<leader>zz", function()
             require("twilight").setup {
-                context = -1,
+                context = 10,
                 treesitter = true,
             }
             require("zen-mode").setup {
@@ -26,7 +26,7 @@ return {
                     tmux = { enabled = true },
                     alacritty = {
                         enabled = true,
-                        font = 20
+                        font = "20"
                     }
                 }
             }
