@@ -14,5 +14,11 @@ return {
     {
         "echasnovski/mini.pairs",
         enabled = false
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        keys = {
+            { "<leader><space>", vim.NIL },
+        }
     }
 }
