@@ -81,5 +81,3 @@ end
 
 vim.api.nvim_command('command! NeorgPreview lua neorg_preview()')
 vim.api.nvim_set_keymap("n", "<leader>np", ":NeorgPreview<cr>", { noremap = true, silent = true, desc = "Neorg Preview" })
-
--- disable default lazyvim maps

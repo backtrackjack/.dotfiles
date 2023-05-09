@@ -24,7 +24,6 @@ lsp.configure('intelephense', {
     ignore_filetypes = { "blade" }
 })
 
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
