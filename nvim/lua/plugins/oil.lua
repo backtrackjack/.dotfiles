@@ -1,5 +1,6 @@
 return {
     "stevearc/oil.nvim",
+    lazy = false,
     opts = {
         keymaps = {
             ["<C-c"] = false,
@@ -9,6 +10,9 @@ return {
             ["<C-s>"] = false,
             ["K"] = "actions.preview",
             ["q"] = "actions.close",
+        },
+        select = {
+            preview = true
         }
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
