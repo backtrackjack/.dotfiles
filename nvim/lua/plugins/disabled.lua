@@ -20,5 +20,5 @@ return {
         keys = {
             { "<leader><space>", vim.NIL },
         }
-    }
+    },
 }
