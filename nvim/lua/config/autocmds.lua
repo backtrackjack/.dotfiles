@@ -6,13 +6,15 @@ local function augroup(name)
     return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
--- chatgpt did this but it works
 -- ensures new directories and files are created on save if they don't exist
-vim.api.nvim_command("augroup AutoCreateDirectory")
-vim.api.nvim_command("autocmd!")
-vim.api.nvim_command('autocmd BufWritePre * silent! execute "!mkdir -p " .. shellescape(expand("%:p:h"))')
-vim.api.nvim_command("augroup END")
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup("auto_create_directory"),
+    callback = function()
+        vim.fn.mkdir(vim.fn.expand("%:p:h"), "p")
+    end,
+})
 
+-- set/unset some options for non-code filetypes
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("notes_docs_config"),
     pattern = { "gitcommit", "markdown", "norg", "org", "text", "vimwiki" },
@@ -23,6 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- remove colorcolumn for some filetypes
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("no_colorcolumn_html"),
     pattern = { "html", "blade", "eruby" },
@@ -30,7 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.colorcolumn = ''
     end,
 })
---
+
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("close_with_q"),
@@ -54,17 +57,26 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- disable comment on new line
 vim.api.nvim_create_autocmd("BufEnter", {
     group = augroup("no_nl_comment"),
     callback = function()
         vim.opt.formatoptions:remove { "c", "r", "o" }
-    end, -- disable comment on new line
+    end,
 })
 
+-- update file when there are external changes
 vim.api.nvim_create_autocmd("FocusGained", {
     group = augroup("refresh_from_external"),
     callback = function()
         vim.cmd "checktime"
     end,
-    desc = "update file when there are changes"
+})
+
+-- remove trailing whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup("remove_trailing_whitespace_on_save"),
+    callback = function()
+        vim.cmd [[%s/\s\+$//e]]
+    end,
 })
