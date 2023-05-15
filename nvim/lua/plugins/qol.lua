@@ -1,9 +1,5 @@
 return {
     {
-        "tpope/vim-fugitive",
-        event = { "BufEnter" }
-    },
-    {
         "chrishrb/gx.nvim",
         event = { "BufEnter" },
         dependencies = { "nvim-lua/plenary.nvim" },
