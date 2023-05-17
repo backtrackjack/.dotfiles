@@ -2,16 +2,16 @@ draw_bold_text_with_bright_colors: true
 
 font:
   bold:
-    family: FantasqueSansMono Nerd Font Mono
+    family: Mononoki Nerd Font
     style: Bold
   bold_italic:
-    family: FantasqueSansMono Nerd Font Mono
+    family: Mononoki Nerd Font
     style: Bold Italic
   italic:
-    family: FantasqueSansMono Nerd Font Mono
+    family: Mononoki Nerd Font
     style: Italic
   normal:
-    family: FantasqueSansMono Nerd Font Mono
+    family: Mononoki Nerd Font
     style: Regular
   offset:
     x: 0
