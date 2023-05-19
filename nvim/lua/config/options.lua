@@ -46,9 +46,6 @@ vim.opt.splitright = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.confirm = true                 -- ask for confirmation instead of erroring
-vim.opt.undofile = true                -- persistent undo
-vim.opt.backup = true                  -- automatically save a backup file
-vim.opt.backupdir:remove('.')          -- keep backups out of the current directory
 vim.opt.shortmess:append({ I = true }) -- disable the splash screen
 vim.opt.wildmode =
 'longest:full,full'                    -- complete the longest common match, and allow tabbing the results to fully complete them
@@ -56,3 +53,8 @@ vim.opt.signcolumn = 'yes:1'
 vim.opt.showmode = false
 vim.opt.updatetime = 4001  -- Set updatime to 1ms longer than the default to prevent polyglot from changing it
 vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+vim.opt.isfname:append("@-@")
