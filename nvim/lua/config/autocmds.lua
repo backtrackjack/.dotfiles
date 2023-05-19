@@ -80,3 +80,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.cmd [[%s/\s\+$//e]]
     end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup("correct_blade_comment_string"),
+    pattern = { "*.blade.php" },
+    callback = function()
+        vim.opt_local.commentstring = "{{-- %s --}}"
+    end
+})
