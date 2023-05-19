@@ -17,6 +17,8 @@ end
 map("i", "<C-c>", "<Esc>")
 map("n", "<leader><leader>", "<c-^>", { desc = "other buffer" })
 
+map("n", "H", "<cmd>cprev<cr>", { desc = "previous quickfix", silent = true })
+map("n", "L", "<cmd>cnext<cr>", { desc = "next quickfix", silent = true })
 -- find _all_ files
 map(
     "n",
