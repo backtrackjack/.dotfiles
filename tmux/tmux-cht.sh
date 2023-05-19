@@ -4,7 +4,7 @@ languages=$(
     echo "php rust javascript laravel html lua ruby" | tr " " "\n"
 )
 core_utils=$(
-    echo "find sed git awk curl" | tr " " "\n"
+    echo "ssh find sed git awk curl" | tr " " "\n"
 )
 selected=$(echo -e "$languages\n$core_utils" | fzf)
 
