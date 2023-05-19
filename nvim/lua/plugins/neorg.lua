@@ -1,7 +1,6 @@
 -- note: on macos run `cc=/usr/bin/gcc nvim -c "tsinstallsync norg"` to sync parsers
 return {
     "nvim-neorg/neorg",
-    version = "4.0.1", -- remove when bug fixed
     build = ":Neorg sync-parsers",
     event = "VimEnter",
     opts = {
@@ -29,9 +28,15 @@ return {
                     workspaces = {
                         notes = "~/.dotfiles/neorg/notes",
                         work = "~/.dotfiles/neorg/work",
+                        journal = "~/.dotfiles/neorg/journal",
                     },
                     default_workspace = "notes",
                 },
+            },
+            ["core.journal"] = {
+                config = {
+                    workspace = "journal"
+                }
             },
             ["core.completion"] = {
                 config = {
