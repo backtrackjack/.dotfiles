@@ -14,15 +14,16 @@ return {
         }
     },
     -- plugin to "goto" laravel blade components, could be interesting when it works
-    -- {
-    --     "ccaglak/larago.nvim",
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --     },
-    --     config = function()
-    --         vim.keymap.set("n", "<leader>gf", "<cmd>GoBlade<cr>")
-    --     end
-    -- },
+    {
+        "ccaglak/larago.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        filetypes = { "blade", "php" },
+        config = function()
+            vim.keymap.set("n", "gb", "<cmd>GoBlade<cr>", { noremap = true, silent = true })
+        end
+    },
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = 'v2.x',
@@ -62,6 +63,9 @@ return {
                 'tsserver',
                 'rust_analyzer',
                 'intelephense',
+                -- 'solargraph', -- think ruby needs to be latest version for this to work without project gem
+                'clangd',
+                'lua_ls'
             })
 
             -- Fix Undefined global 'vim'
@@ -82,6 +86,10 @@ return {
 
             lsp.configure('solargraph', {
                 cmd = { "solargraph", "stdio" },
+            })
+
+            lsp.configure('clangd', {
+                cmd = { "clangd", "--offset-encoding=utf-16" },
             })
 
             local cmp = require('cmp')
@@ -129,5 +137,5 @@ return {
         dependencies = "copilot.lua",
         opts = {},
         config = true
-    }
+    },
 }
