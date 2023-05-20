@@ -3,6 +3,7 @@ return {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     event = "VimEnter",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     opts = {
         load = {
             ["core.defaults"] = {}, -- loads default behaviour
@@ -45,5 +46,4 @@ return {
             },
         },
     },
-    dependencies = { { "nvim-lua/plenary.nvim" } },
 }
