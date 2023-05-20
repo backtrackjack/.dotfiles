@@ -33,7 +33,12 @@ shell:
   args:
     - -l
     - -c
-    - "tmux attach || tmux"
+    - |
+      if tmux has-session -t scratch; then
+          tmux attach-session -t scratch
+      else
+          tmux new-session -s scratch
+      fi
   program: /bin/zsh
 
 window:
