@@ -41,6 +41,9 @@ shell:
       fi
   program: /bin/zsh
 
+visual_bell:
+  duration: 0
+
 window:
   decorations: full
   dynamic_padding: false
