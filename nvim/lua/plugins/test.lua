@@ -4,21 +4,27 @@ return {
         { "nvim-lua/plenary.nvim" },
         { "nvim-treesitter/nvim-treesitter" },
         { "antoinemadec/FixCursorHold.nvim" },
+        { "olimorris/neotest-phpunit" },
         { "theutz/neotest-pest" },
         { "rouge8/neotest-rust" },
         { "nvim-neotest/neotest-vim-test" },
     },
     keys = {
-        { '<leader>tS', '<cmd>lua require("neotest").run.run("./tests")<cr>', { desc = "Test Suite", silent = true }},
-        { '<leader>ts', '<cmd>lua require("neotest").summary.toggle()<cr>', { desc = "Test Suite", silent = true }},
-        { '<leader>tf', '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', { desc = "Test File", silent = true }},
-        { '<leader>tn', '<cmd>lua require("neotest").run.run()<cr>', { desc = "Test Nearest", silent = true }},
-        { '<leader>tc', '<cmd>lua require("neotest").run.stop()<cr>', { desc = "Test Cancel", silent = true }},
-        { '<leader>ta', '<cmd>lua require("neotest").run.attach()<cr>', { desc = "Attach to nearest test", silent = true }},
+        { "<leader>tr", function() require("neotest").run.run() end, desc = "Run Nearest" },
+        { "<leader>tR", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
+        { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary" },
+        { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
+        { "<leader>tO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel" },
+        { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop" },
     },
     config = function()
         require("neotest").setup({
             adapters = {
+                require('neotest-phpunit')({
+                    phpunit_cmd = function()
+                        return "./vendor/bin/phpunit"
+                    end
+                }),
                 require('neotest-pest')({
                     pest_cmd = function()
                         return "./vendor/bin/pest"

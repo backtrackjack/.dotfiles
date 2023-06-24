@@ -21,11 +21,9 @@ return {
     },
 
     {
-        "echasnovski/mini.splitjoin",
-        version = false,
-        config = function()
-            require("mini.splitjoin").setup()
-        end,
+        "Wansmer/treesj",
+        keys = { { "gS", "<cmd>TSJToggle<cr>", desc = "Join Toggle" } },
+        opts = { use_default_keymaps = false, max_join_length = 150 },
     },
 
     {

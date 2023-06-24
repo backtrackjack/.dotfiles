@@ -19,7 +19,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        filetypes = { "blade", "php" },
+        ft = { "blade", "php" },
         config = function()
             vim.keymap.set("n", "gb", "<cmd>GoBlade<cr>", { noremap = true, silent = true })
         end

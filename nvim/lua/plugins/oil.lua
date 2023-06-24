@@ -3,7 +3,7 @@ return {
     lazy = false,
     opts = {
         keymaps = {
-            ["<C-c"] = false,
+            ["<C-c>"] = false,
             ["<C-h>"] = false,
             ["<C-l>"] = false,
             ["<C-p>"] = false,

@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("close_with_q"),
     pattern = {
+        "neotest-output-panel",
         "PlenaryTestPopup",
         "help",
         "lspinfo",
@@ -81,10 +82,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = augroup("correct_blade_comment_string"),
-    pattern = { "*.blade.php" },
-    callback = function()
-        vim.opt_local.commentstring = "{{-- %s --}}"
-    end
-})
