@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 languages=$(
-    echo "php rust javascript laravel html lua ruby" | tr " " "\n"
+    echo "php rust javascript laravel html lua ruby rails" | tr " " "\n"
 )
 core_utils=$(
     echo "ssh find sed git awk curl" | tr " " "\n"
