@@ -8,4 +8,6 @@ end
 
 config.color_scheme = 'AdventureTime'
 
+config.enable_tab_bar = false
+
 return config
