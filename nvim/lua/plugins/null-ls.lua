@@ -12,8 +12,7 @@ return {
                 nls.builtins.formatting.prettierd,
                 nls.builtins.formatting.rustfmt,
                 nls.builtins.formatting.blade_formatter,
-                -- this takes some setup
-                -- nls.builtins.diagnostics.erb_lint,
+                nls.builtins.formatting.erb_lint,
                 nls.builtins.diagnostics.rubocop,
                 nls.builtins.diagnostics.php,
                 nls.builtins.diagnostics.alex.with({

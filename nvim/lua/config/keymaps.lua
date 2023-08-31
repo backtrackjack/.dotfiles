@@ -15,10 +15,16 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("i", "<C-c>", "<Esc>")
+
+-- go to other buffer
 map("n", "<leader><leader>", "<c-^>", { desc = "other buffer" })
 
+-- navigiate quickfix
 map("n", "H", "<cmd>cprev<cr>", { desc = "previous quickfix", silent = true })
 map("n", "L", "<cmd>cnext<cr>", { desc = "next quickfix", silent = true })
+
+map("n", "<CR>", ":noh<CR><CR>", { desc = "clear search highlight" })
+
 -- find _all_ files
 map(
     "n",
@@ -72,14 +78,6 @@ map("n", "<leader>nn", ":Neorg workspace notes<cr>", { desc = "Neorg notes" })
 map("n", "<leader>nw", ":Neorg workspace work<cr>", { desc = "Neorg work" })
 map("n", "<leader>nc", ":Neorg toggle-concealer<cr>", { desc = "Neorg toggle-concealer" })
 map("n", "<leader>nt", ":Neorg toc qflist<cr>", { desc = "Neorg table of contents" })
-
-function neorg_preview()
-    local temp_file = vim.fn.tempname() .. ".md"
-    vim.cmd("Neorg export to-file " .. temp_file)
-    vim.cmd("edit " .. temp_file)
-    vim.cmd("MarkdownPreview")
-    os.remove(temp_file)
-end
 
 vim.api.nvim_command('command! NeorgPreview lua neorg_preview()')
 vim.api.nvim_set_keymap("n", "<leader>np", ":NeorgPreview<cr>", { noremap = true, silent = true, desc = "Neorg Preview" })

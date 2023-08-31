@@ -64,7 +64,6 @@ return {
                 'rust_analyzer',
                 'intelephense',
                 -- 'solargraph', -- think ruby needs to be latest version for this to work without project gem
-                'clangd',
                 'lua_ls'
             })
 
@@ -86,10 +85,6 @@ return {
 
             lsp.configure('solargraph', {
                 cmd = { "solargraph", "stdio" },
-            })
-
-            lsp.configure('clangd', {
-                cmd = { "clangd", "--offset-encoding=utf-16" },
             })
 
             local cmp = require('cmp')
