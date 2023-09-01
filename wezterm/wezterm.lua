@@ -10,7 +10,17 @@ config.color_scheme = 'cyberpunk'
 
 config.enable_tab_bar = false
 
-config.font = wezterm.font_with_fallback { 'Mononoki Nerd Font Mono', 'Andale Mono' }
-config.font_size = 16
+config.audible_bell = "Disabled"
+
+config.font = wezterm.font_with_fallback { 'FantasqueSansMono Nerd Font', 'Andale Mono' }
+config.font_size = 20
+
+config.keys = {
+    {
+        key = 'c',
+        mods = 'CMD',
+        action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+    }
+}
 
 return config
