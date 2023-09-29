@@ -13,7 +13,7 @@ config.enable_tab_bar = false
 config.audible_bell = "Disabled"
 
 config.font = wezterm.font_with_fallback { 'FantasqueSansMono Nerd Font', 'Andale Mono' }
-config.font_size = 20
+config.font_size = 16
 
 config.keys = {
     {

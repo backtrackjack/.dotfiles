@@ -11,9 +11,9 @@ return {
         -- remap to open the Telescope refactoring menu in visual mode
         vim.api.nvim_set_keymap(
             "v",
-            "<leader>rr",
-            "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-            { noremap = true }
+            "<leader>ri",
+            [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR> ]],
+            { noremap = true, silent = true, expr = false }
         )
     end
 }
