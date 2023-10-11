@@ -48,13 +48,6 @@ return {
     { "sickill/vim-pasta" }, -- smart formatting on paste
 
     {
-        "preservim/vim-markdown",
-        config = function()
-            vim.g.vim_markdown_folding_disabled = 1
-        end,
-    },
-
-    {
         "airblade/vim-rooter",
     },
 
