@@ -16,7 +16,7 @@ return {
         end
         dashboard.section.header.opts.hl = "String"
         dashboard.section.footer.opts.hl = "Type"
-        dashboard.opts.layout[1].val = 2
+        dashboard.opts.layout[1].val = 1
         return dashboard
     end,
     config = function(_, dashboard)

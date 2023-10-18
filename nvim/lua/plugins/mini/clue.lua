@@ -2,7 +2,7 @@ return {
     {
         'echasnovski/mini.clue',
         version = '*',
-        config = function()
+        init = function()
             local miniclue = require('mini.clue')
             miniclue.setup({
                 triggers = {
@@ -37,6 +37,10 @@ return {
                     { mode = 'x', keys = 'z' },
                 },
                 clues = {
+                    { mode = 'n', keys = '<leader>f', desc = 'Find' },
+                    { mode = 'n', keys = '<leader>s', desc = 'Search' },
+                    { mode = 'n', keys = '<leader>g', desc = 'Git' },
+                    { mode = 'n', keys = '<leader>c', desc = 'Code' },
                     miniclue.gen_clues.builtin_completion(),
                     miniclue.gen_clues.g(),
                     miniclue.gen_clues.marks(),
@@ -47,7 +51,8 @@ return {
                 window = {
                     config = {
                         width = 'auto'
-                    }
+                    },
+                    delay = 300
                 }
             })
         end
