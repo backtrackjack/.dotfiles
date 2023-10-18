@@ -31,6 +31,7 @@ require('lazy').setup({
   spec = {
     -- custom plugins 'lua/plugins/*.lua'
     { import = "plugins" },
+    { import = "plugins/mini" },
   },
   defaults = { lazy = false, version = false },
   checker = { enabled = true }, -- automatically check for plugin updates

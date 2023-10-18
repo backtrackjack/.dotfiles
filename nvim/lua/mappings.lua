@@ -82,14 +82,6 @@ map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 
--- lazygit
-map(
-    "n",
-    "<leader>gg",
-    function() Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false }) end,
-    { desc = "Lazygit (root dir)" }
-)
-
 -- toggleable things
 map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })

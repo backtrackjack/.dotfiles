@@ -3,6 +3,7 @@ return {
     event = "VimEnter",
     opts = function()
         local dashboard = require("alpha.themes.dashboard")
+        dashboard.section.header.val = " "
         dashboard.section.buttons.val = {
             dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
             -- dashboard.button("n", " " .. " Notes", ":Neorg index <CR>"),
