@@ -6,8 +6,8 @@ return {
       vim.g.rooter_patterns = { '.git', 'composer.json' }
     end,
     config = function()
-      vim.cmd('Rooter')
-    end
+      vim.cmd 'Rooter'
+    end,
   }, -- roots your cwd to project
   { 'sickill/vim-pasta' }, -- smart formatting on paste
   { 'tpope/vim-sleuth' }, -- automatically detect indent settings
@@ -20,7 +20,15 @@ return {
   {
     'tpope/vim-fugitive',
     dependencies = 'tpope/vim-rhubarb',
+    keys = { { mode = { 'n' }, '<leader>gg', vim.cmd.Git } },
   }, -- GIT
   { 'jwalton512/vim-blade' }, -- blade support
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
+  { 'github/copilot.vim' }, -- taking our jobs
+  {
+    'folke/trouble.nvim',
+    init = function()
+      vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', { noremap = true, silent = true, desc = 'TroubleToggle' })
+    end,
+  }, -- diagnostics in quickfix list
 }

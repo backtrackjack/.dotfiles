@@ -27,28 +27,28 @@ require 'autocommands'
 require 'mappings'
 
 -- Setup lazy.nvim
-require('lazy').setup({
+require('lazy').setup {
   spec = {
     -- custom plugins 'lua/plugins/*.lua'
-    { import = "plugins" },
-    { import = "plugins/mini" },
+    { import = 'plugins' },
+    { import = 'plugins/mini' },
   },
   defaults = { lazy = false, version = false },
   checker = { enabled = true }, -- automatically check for plugin updates
-  performance= {
+  performance = {
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrw",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+        'gzip',
+        'matchit',
+        'matchparen',
+        'netrw',
+        'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
       },
     },
   },
-})
+}
