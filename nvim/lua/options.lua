@@ -10,8 +10,6 @@ if vim.g.neovide then
     opt.guifont = "Jetbrains Mono"              -- Set GUI font to Jetbrains Mono
 end
 
-opt.syntax = 'off'                                 -- Disable syntax highlighting
-
 opt.number = true                                  -- Show line numbers
 opt.relativenumber = true                          -- Show relative line numbers
 

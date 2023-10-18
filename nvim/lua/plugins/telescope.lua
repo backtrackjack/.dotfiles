@@ -18,7 +18,7 @@ return {
       {
         '<leader>ff',
         function()
-          require('telescope.builtin').find_files { no_ignore = true, prompt_title = 'All Files' }
+          require('telescope.builtin').git_files { no_ignore = true, prompt_title = 'All Files' }
         end,
         desc = 'find files',
       },
