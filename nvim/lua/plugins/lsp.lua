@@ -1,135 +1,164 @@
 return {
-    {
-        "folke/neodev.nvim",
-        opts = {
-            experimental = { pathStrict = true },
-            library = { plugins = { "neotest" }, types = true }
-        }
-    },
-    {
-        "tpope/vim-rails",
-        dependencies = {
-            "tpope/vim-bundler",
-            "tpope/vim-dispatch",
-        }
-    },
-    -- plugin to "goto" laravel blade components, could be interesting when it works
-    {
-        "ccaglak/larago.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
+  'neovim/nvim-lspconfig',
+  dependencies = {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'b0o/schemastore.nvim',
+    { 'jose-elias-alvarez/null-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+    'jayp0521/mason-null-ls.nvim',
+  },
+  config = function()
+    -- Setup Mason to automatically install LSP servers
+    require('mason').setup()
+    require('mason-lspconfig').setup({ automatic_installation = true })
+
+    local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+    -- PHP
+    require('lspconfig').intelephense.setup({
+      commands = {
+        IntelephenseIndex = {
+          function()
+            vim.lsp.buf.execute_command({ command = 'intelephense.index.workspace' })
+          end,
         },
-        ft = { "blade", "php" },
-        config = function()
-            vim.keymap.set("n", "gb", "<cmd>GoBlade<cr>", { noremap = true, silent = true })
-        end
-    },
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = 'v2.x',
-        dependencies = {
+      },
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        -- if client.server_capabilities.inlayHintProvider then
+        --   vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
+      end,
+      capabilities = capabilities
+    })
 
-            --lsp support
-            {
-                "neovim/nvim-lspconfig",
-            },
-            {
-                "williamboman/mason.nvim",
-                opts = {
-                    ui = { border = 'rounded' }
-                }
-            },
-            { 'williamboman/mason-lspconfig.nvim' },
+    require('lspconfig').phpactor.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.completionProvider = false
+        client.server_capabilities.hoverProvider = false
+        client.server_capabilities.implementationProvider = false
+        client.server_capabilities.referencesProvider = false
+        client.server_capabilities.renameProvider = false
+        client.server_capabilities.selectionRangeProvider = false
+        client.server_capabilities.signatureHelpProvider = false
+        client.server_capabilities.typeDefinitionProvider = false
+        client.server_capabilities.workspaceSymbolProvider = false
+        client.server_capabilities.definitionProvider = false
+        client.server_capabilities.documentHighlightProvider = false
+        client.server_capabilities.documentSymbolProvider = false
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+      init_options = {
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false,
+      },
+      handlers = {
+        ['textDocument/publishDiagnostics'] = function() end
+      }
+    })
 
-            --cmp
-            { 'hrsh7th/nvim-cmp', },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
+    -- Vue, JavaScript, TypeScript
+    require('lspconfig').volar.setup({
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        -- if client.server_capabilities.inlayHintProvider then
+        --   vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
+      end,
+      capabilities = capabilities,
+      -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
+      -- This drastically improves the responsiveness of diagnostic updates on change
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    })
 
-            --snip
-            { 'L3MON4D3/LuaSnip' },
-            { 'rafamadriz/friendly-snippets' }
+    -- Tailwind CSS
+    require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+
+    -- JSON
+    require('lspconfig').jsonls.setup({
+      capabilities = capabilities,
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
         },
-        config = function()
-            local lsp = require("lsp-zero")
+      },
+    })
 
-            lsp.preset("recommended")
-
-            lsp.ensure_installed({
-                'tsserver',
-                'rust_analyzer',
-                'intelephense',
-                -- 'solargraph', -- think ruby needs to be latest version for this to work without project gem
-                'lua_ls'
-            })
-
-            -- Fix Undefined global 'vim'
-            lsp.configure('lua_ls', {
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { 'vim' }
-                        }
-                    }
-                }
-            })
-
-            lsp.configure('intelephense', {
-                filetypes = { "php" },
-                ignore_filetypes = { "blade" }
-            })
-
-            lsp.configure('solargraph', {
-                cmd = { "solargraph", "stdio" },
-            })
-
-            local cmp = require('cmp')
-            local cmp_select = { behavior = cmp.SelectBehavior.Select }
-            local cmp_mappings = lsp.defaults.cmp_mappings({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = false,
-                }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ['<Tab>'] = cmp.config.disable,
-                ['<S-Tab>'] = cmp.config.disable,
-                ['<CR>'] = cmp.config.disable,
-            })
-
-            lsp.setup_nvim_cmp({
-                preselect = cmp.PreselectMode.None,
-                mapping = cmp_mappings,
-            })
-
-            lsp.set_preferences({
-                suggest_lsp_servers = false,
-            })
-
-            lsp.setup()
-
-            vim.diagnostic.config({
-                virtual_text = false
-            })
+    -- null-ls
+    local null_ls = require('null-ls')
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    null_ls.setup({
+      temp_dir = '/tmp',
+      sources = {
+        null_ls.builtins.diagnostics.eslint_d.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.eslintrc.js' })
+          end,
+        }),
+        -- null_ls.builtins.diagnostics.phpstan, -- TODO: Only if config file
+        null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+        null_ls.builtins.formatting.eslint_d.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
+          end,
+        }),
+        null_ls.builtins.formatting.pint.with({
+          condition = function(utils)
+            return utils.root_has_file({ 'vendor/bin/pint' })
+          end,
+        }),
+        null_ls.builtins.formatting.prettier.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.prettierrc', '.prettierrc.json', '.prettierrc.yml', '.prettierrc.js', 'prettier.config.js' })
+          end,
+        }),
+      },
+      on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+          vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
+            end,
+          })
         end
-    },
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = { "hrsh7th/cmp-emoji" },
-        ---@param opts cmp.ConfigSchema
-        opts = function(_, opts)
-            local cmp = require("cmp")
-            opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
-        end
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        dependencies = "copilot.lua",
-        opts = {},
-        config = true
-    },
+      end,
+    })
+
+    require('mason-null-ls').setup({ automatic_installation = true })
+
+    -- Keymaps
+    vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+    vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>')
+    vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
+    vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+    -- Commands
+    vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, {})
+
+    -- Diagnostic configuration
+    vim.diagnostic.config({
+      virtual_text = false,
+      float = {
+        source = true,
+      }
+    })
+
+    -- Sign configuration
+    vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+    vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+    vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
+    vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+  end,
 }

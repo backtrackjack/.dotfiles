@@ -1,7 +1,10 @@
 return {
     "Eandrju/cellular-automaton.nvim",
+    cmd = "CellularAutomaton",
+    keys = {
+        { "<leader>mr", "<cmd>CellularAutomaton make_it_rain<cr>", desc = "MAKE IT RAIN" }
+    },
     config = function()
-        vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<cr>", { desc = "MAKE IT RAIN" })
         -- extra animations from https://github.com/tjdevries/config_manager/blob/master/xdg_config/nvim/lua/custom/plugins/cellular-automaton.lua
         require("cellular-automaton").register_animation {
             fps = 50,

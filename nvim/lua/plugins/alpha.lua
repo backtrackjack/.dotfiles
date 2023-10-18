@@ -3,34 +3,9 @@ return {
     event = "VimEnter",
     opts = function()
         local dashboard = require("alpha.themes.dashboard")
-        local logo = [[
-            .________.
-         .__! .____. |
-         | .__!  n | |
-     .___| |___. e | |_______._.___.
-     | ._| |_. | o | | ._________. |
- .___| |_|_|_| |___|_|_|_____| |_|_|___.
- |  _| |_____| |_____________| |_____  |
- | | | !_| |_|_|___|_| |_____|_|_! | | |
- | | !___| |_________| |___________! | |
- | | .___|_|_| |___| | | .___| |___. | |
- | | | ._____| |_. | | | | ._| |_. | | |
- | | | !_| |_! | | | | !_| |_|_|_! | | |
- | | !___| |___! | | |___| |_______| | |
- | | .___|_|_____| |_|___|_|_| |___. | |
- | | | ._________| |_________| |_. | | |
- | |_|_|_| |_____|_|_|___| |_|_|_| |_| |
- !_______| |_____________| |_____| |___!
-     | !_|_|_____! | | v | !_| |_! |
-     !_____________| | i !___| |___!
-                   | | m .___! |
-      github.com   | !___! .___!
-    /backtrackjack !_______!
-    ]]
-        dashboard.section.header.val = vim.split(logo, "\n")
         dashboard.section.buttons.val = {
-            -- dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-            dashboard.button("n", " " .. " Notes", ":Neorg index <CR>"),
+            dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+            -- dashboard.button("n", " " .. " Notes", ":Neorg index <CR>"),
             dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }
@@ -38,8 +13,8 @@ return {
             button.opts.hl = "Label"
             button.opts.hl_shortcut = "Statement"
         end
-        dashboard.section.footer.opts.hl = "Type"
         dashboard.section.header.opts.hl = "String"
+        dashboard.section.footer.opts.hl = "Type"
         dashboard.opts.layout[1].val = 2
         return dashboard
     end,
@@ -60,10 +35,9 @@ return {
         vim.api.nvim_create_autocmd("User", {
             pattern = "LazyVimStarted",
             callback = function()
-                local handle = io.popen('fortune')
-                local fortune = handle:read("*a")
-                handle:close()
-                dashboard.section.footer.val = vim.split(fortune, "\n")
+                local stats = require("lazy").stats()
+                local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+                dashboard.section.footer.val = "⚡ loaded " .. stats.count .. " plugins in " .. ms .. "ms"
                 pcall(vim.cmd.AlphaRedraw)
             end,
         })

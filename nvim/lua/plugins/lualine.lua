@@ -2,7 +2,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-        local icons = require("lazyvim.config").icons
+        local icons = require("util.icons")
 
         local function fg(name)
             return function()
@@ -48,10 +48,6 @@ return {
                             info = icons.diagnostics.Info,
                             hint = icons.diagnostics.Hint,
                         },
-                    },
-                    {
-                        function() return require("nvim-navic").get_location() end,
-                        cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
                     },
                 },
                 lualine_x = {
@@ -105,7 +101,7 @@ return {
                     },
                 }
             },
-            extensions = { "neo-tree", "lazy" },
+            extensions = { "lazy" },
         }
     end,
 }
