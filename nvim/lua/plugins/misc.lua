@@ -7,4 +7,5 @@ return {
   { "whatyouhide/vim-textobj-xmlattr", dependencies = "kana/vim-textobj-user" }, -- Text objects for HTML attributes
   { "tpope/vim-fugitive", dependencies = "tpope/vim-rhubarb" }, -- GIT
   { "jwalton512/vim-blade" }, -- blade support
+  { "LunarVim/bigfile.nvim" }, -- better performance on big files
 }
