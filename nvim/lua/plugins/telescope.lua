@@ -25,19 +25,6 @@ return {
                 desc =
                 "list active buffers"
             },
-            -- git
-            {
-                "<leader>gc",
-                "<cmd>Telescope git_commits<cr>",
-                desc =
-                "git commits"
-            },
-            {
-                "<leader>gs",
-                "<cmd>Telescope git_status<cr>",
-                desc =
-                "git status"
-            },
             -- search
             {
                 "<leader>sa",

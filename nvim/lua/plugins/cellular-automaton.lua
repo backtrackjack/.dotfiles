@@ -2,7 +2,7 @@ return {
     "Eandrju/cellular-automaton.nvim",
     cmd = "CellularAutomaton",
     keys = {
-        { "<leader>mr", "<cmd>CellularAutomaton make_it_rain<cr>", desc = "MAKE IT RAIN" }
+        { "<leader>mr", "<cmd>CellularAutomaton make_it_rain<cr>", desc = "RAIN" }
     },
     config = function()
         -- extra animations from https://github.com/tjdevries/config_manager/blob/master/xdg_config/nvim/lua/custom/plugins/cellular-automaton.lua
