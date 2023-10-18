@@ -40,9 +40,6 @@ return {
     {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",
-        init = function()
-            vim.g.tmux_navigator_no_mappings = 1
-        end,
     },                       -- supposed to let you navigate tmux panes same as in nvim
 
     { "sickill/vim-pasta" }, -- smart formatting on paste

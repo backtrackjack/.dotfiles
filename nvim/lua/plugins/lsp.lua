@@ -32,7 +32,6 @@ return {
             --lsp support
             {
                 "neovim/nvim-lspconfig",
-                opts = { autoformat = false }
             },
             {
                 "williamboman/mason.nvim",
