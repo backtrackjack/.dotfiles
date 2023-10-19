@@ -50,8 +50,6 @@ opt.wildmode =
 'longest:full,full'                                -- Set wildmode to complete the longest common match and allow tabbing the results to fully complete them
 opt.signcolumn = 'yes:1'                           -- Always display the sign column with a width of 1
 opt.showmode = false                               -- Hide the mode indicator
-opt.updatetime = 4001                              -- Set 'updatetime' to 1ms longer than the default to prevent polyglot from changing it
-opt.redrawtime = 10000                             -- Allow more time for loading syntax on large files
 opt.swapfile = false                               -- Disable creation of swap files
 opt.backup = false                                 -- Disable creation of backup files
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Set the directory for undo files

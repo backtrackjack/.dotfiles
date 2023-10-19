@@ -6,6 +6,10 @@ vim.loader.enable()
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+require 'options'
+require 'autocommands'
+require 'mappings'
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -21,10 +25,6 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
-
-require 'options'
-require 'autocommands'
-require 'mappings'
 
 -- Setup lazy.nvim
 require('lazy').setup {

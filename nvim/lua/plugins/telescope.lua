@@ -14,7 +14,13 @@ return {
     },
     cmd = { 'Telescope' },
     keys = {
-      { '<leader>/', '<cmd>Telescope live_grep<cr>', desc = 'Telescope live_grep' },
+      {
+        '<leader>/',
+        function()
+          require('telescope').extensions.live_grep_args.live_grep_args()
+        end,
+        desc = 'Telescope live_grep'
+      },
       {
         '<leader>ff',
         function()

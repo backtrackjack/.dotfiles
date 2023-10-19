@@ -47,7 +47,7 @@
   "phpactor": { "branch": "master", "commit": "a948531b6ab4748c7f510b6179f203380297ace2" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
-  "schemastore.nvim": { "branch": "main", "commit": "a8fa6a36f09f00d32577fae0b3cee2f25ffc5c74" },
+  "schemastore.nvim": { "branch": "main", "commit": "f4915aef564f695a2c1e6e65e3c41f8f8ee16af4" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "851c0997d55601f2afd7290db0f90dc364e29f58" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
