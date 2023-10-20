@@ -9,12 +9,20 @@ return {
   }, -- Text objects for HTML attributes
   {
     'tpope/vim-fugitive',
-    dependencies = 'tpope/vim-rhubarb',
+    dependencies = 'tommcdo/vim-fubitive',
     keys = { { mode = { 'n' }, '<leader>gg', vim.cmd.Git } },
   }, -- GIT
   { 'jwalton512/vim-blade' }, -- blade support
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
-  { 'github/copilot.vim' }, -- taking our jobs
+  {
+    'github/copilot.vim',
+    config = function()
+      vim.cmd([[
+        imap <silent><script><expr> <c-y> copilot#Accept("\<cr>")
+        let g:copilot_no_tab_map = v:true
+      ]])
+    end
+  }, -- taking our jobs
   {
     'folke/trouble.nvim',
     init = function()
