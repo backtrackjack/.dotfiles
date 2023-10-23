@@ -19,7 +19,7 @@ return {
         function()
           require('telescope').extensions.live_grep_args.live_grep_args()
         end,
-        desc = 'Telescope live_grep',
+        desc = 'Grep everything',
       },
       {
         '<leader>ff',
