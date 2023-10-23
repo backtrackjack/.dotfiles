@@ -5,7 +5,7 @@ return {
         {
             '<leader>U',
             '<cmd>UndotreeToggle<cr>',
-            desc = "Undotree Toggle",
+            desc = "[U]ndotree Toggle",
         },
     }
 }

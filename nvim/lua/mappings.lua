@@ -5,7 +5,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- lazy
-map('n', '<leader>l', '<cmd>:Lazy<cr>', { desc = 'Lazy' })
+map('n', '<leader>l', '<cmd>:Lazy<cr>', { desc = '[l]azy' })
 
 -- make ctrl+c act like esc
 map('i', '<C-c>', '<Esc>')
@@ -73,11 +73,6 @@ map('n', '<leader>ui', vim.show_pos, { desc = 'Inspect Pos' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-
--- lazygit
-map('n', '<leader>gg', function()
-  Util.float_term({ 'lazygit' }, { cwd = Util.get_root(), esc_esc = false })
-end, { desc = 'Lazygit (root dir)' })
 
 -- toggleable things
 map('n', '<leader>us', function()

@@ -26,63 +26,63 @@ return {
         function()
           require('telescope.builtin').git_files { no_ignore = true, prompt_title = 'All Files' }
         end,
-        desc = 'find files',
+        desc = '[f]ind files',
       },
       {
         '<leader>fF',
         ":lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true })<cr>",
-        desc = 'like REALLY find files',
+        desc = '[F]ind files more harder',
       },
       {
         '<leader>b',
         '<cmd>Telescope buffers<cr>',
-        desc = 'list active buffers',
+        desc = 'List active [b]uffers',
       },
       -- search
       {
         '<leader>sa',
         '<cmd>Telescope autocommands<cr>',
-        desc = 'autocommands',
+        desc = '[a]utocommands',
       },
       {
         '<leader>sb',
         '<cmd>Telescope current_buffer_fuzzy_find<cr>',
-        desc = 'current buffer fuzzy find',
+        desc = 'in [b]uffer',
       },
       {
         '<leader>sc',
         '<cmd>Telescope commands<cr>',
-        desc = 'commands',
+        desc = '[c]ommands',
       },
       {
         '<leader>sd',
         '<cmd>Telescope diagnostics bufnr=0<cr>',
-        desc = 'document diagnostics',
+        desc = '[d]iagnostics',
       },
       {
         '<leader>sD',
         '<cmd>Telescope diagnostics<cr>',
-        desc = 'workspace diagnostics',
+        desc = 'all of the [D]iagnostics',
       },
       {
         '<leader>sh',
         '<cmd>Telescope help_tags<cr>',
-        desc = 'help pages',
+        desc = '[h]elp pages',
       },
       {
         '<leader>sH',
         '<cmd>Telescope highlights<cr>',
-        desc = 'highlight groups',
+        desc = '[H]ighlight groups',
       },
       {
         '<leader>sk',
         '<cmd>Telescope keymaps<cr>',
-        desc = 'keymaps',
+        desc = '[k]eymaps',
       },
       {
         '<leader>sM',
         '<cmd>Telescope man_pages<cr>',
-        desc = 'man pages',
+        desc = '[M]an pages',
       },
       -- ui
       {
@@ -90,7 +90,7 @@ return {
         function()
           require('telescope.builtin').colorscheme { enable_preview = true }
         end,
-        desc = 'colorscheme picker with preview',
+        desc = '[C]olorscheme picker with preview',
       },
     },
     config = function()

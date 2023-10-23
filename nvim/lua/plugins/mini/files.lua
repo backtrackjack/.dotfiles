@@ -10,18 +10,18 @@ return {
     },
     keys = {
         {
-            "<leader>e",
+            "<leader>fe",
             function()
                 require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
             end,
-            desc = "Open mini.files (directory of current file)",
+            desc = "[e]xplorer (directory of open file)",
         },
         {
-            "<leader>E",
+            "<leader>fE",
             function()
                 require("mini.files").open(vim.loop.cwd(), true)
             end,
-            desc = "Open mini.files (cwd)",
+            desc = "[E]xplorer (current working directory)",
         },
     },
     config = function(_, opts)
