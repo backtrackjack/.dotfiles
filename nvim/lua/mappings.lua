@@ -47,9 +47,6 @@ map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and clear hlsea
 map('i', ';;', '<Esc>A;<Esc>')
 map('i', ',,', '<Esc>A,<Esc>')
 
--- code diagnostics
-map('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-
 -- Clear search, diff update and redraw (awesome)
 map('n', '<leader>ur', '<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>', { desc = 'Redraw / clear hlsearch / diff update' })
 

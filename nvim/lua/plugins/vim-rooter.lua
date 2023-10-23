@@ -1,5 +1,6 @@
 return {
   'airblade/vim-rooter',
+  enabled = false,
   lazy = false,
   init = function()
     vim.g.rooter_manual_only = 1

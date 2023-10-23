@@ -90,7 +90,7 @@ return {
     require('lspconfig').solargraph.setup { capabilities = capabilities }
 
     -- Keymaps
-    vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+    vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>')
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
     vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
     vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>')

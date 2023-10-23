@@ -7,18 +7,18 @@ return {
   {
     'tpope/vim-fugitive',
     dependencies = 'tommcdo/vim-fubitive',
-    keys = { { mode = { 'n' }, '<leader>gg', vim.cmd.Git } },
+    keys = { { mode = { 'n' }, '<leader>gg', vim.cmd.Git, desc = 'Open fugitive' } },
   }, -- GIT
   { 'jwalton512/vim-blade' }, -- blade support
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
   {
     'github/copilot.vim',
     config = function()
-      vim.cmd([[
+      vim.cmd [[
         imap <silent><script><expr> <c-y> copilot#Accept("\<cr>")
         let g:copilot_no_tab_map = v:true
-      ]])
-    end
+      ]]
+    end,
   }, -- taking our jobs
   {
     'folke/trouble.nvim',
