@@ -4,22 +4,20 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'b0o/schemastore.nvim',
-    { 'jose-elias-alvarez/null-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
-    'jayp0521/mason-null-ls.nvim',
   },
   config = function()
     -- Setup Mason to automatically install LSP servers
     require('mason').setup()
-    require('mason-lspconfig').setup({ automatic_installation = true })
+    require('mason-lspconfig').setup { automatic_installation = true }
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     -- PHP
-    require('lspconfig').intelephense.setup({
+    require('lspconfig').intelephense.setup {
       commands = {
         IntelephenseIndex = {
           function()
-            vim.lsp.buf.execute_command({ command = 'intelephense.index.workspace' })
+            vim.lsp.buf.execute_command { command = 'intelephense.index.workspace' }
           end,
         },
       },
@@ -30,10 +28,10 @@ return {
         --   vim.lsp.buf.inlay_hint(bufnr, true)
         -- end
       end,
-      capabilities = capabilities
-    })
+      capabilities = capabilities,
+    }
 
-    require('lspconfig').phpactor.setup({
+    require('lspconfig').phpactor.setup {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         client.server_capabilities.completionProvider = false
@@ -52,16 +50,16 @@ return {
         client.server_capabilities.documentRangeFormattingProvider = false
       end,
       init_options = {
-        ["language_server_phpstan.enabled"] = false,
-        ["language_server_psalm.enabled"] = false,
+        ['language_server_phpstan.enabled'] = false,
+        ['language_server_psalm.enabled'] = false,
       },
       handlers = {
-        ['textDocument/publishDiagnostics'] = function() end
-      }
-    })
+        ['textDocument/publishDiagnostics'] = function() end,
+      },
+    }
 
     -- Vue, JavaScript, TypeScript
-    require('lspconfig').volar.setup({
+    require('lspconfig').volar.setup {
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
@@ -73,20 +71,23 @@ return {
       -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
       -- This drastically improves the responsiveness of diagnostic updates on change
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    })
+    }
 
     -- Tailwind CSS
-    require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+    require('lspconfig').tailwindcss.setup { capabilities = capabilities }
 
     -- JSON
-    require('lspconfig').jsonls.setup({
+    require('lspconfig').jsonls.setup {
       capabilities = capabilities,
       settings = {
         json = {
           schemas = require('schemastore').json.schemas(),
         },
       },
-    })
+    }
+
+    --  Ruby
+    require('lspconfig').solargraph.setup { capabilities = capabilities }
 
     -- Keymaps
     vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
@@ -100,15 +101,17 @@ return {
     vim.keymap.set('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
     -- Commands
-    vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, {})
+    vim.api.nvim_create_user_command('Format', function()
+      vim.lsp.buf.format { timeout_ms = 5000 }
+    end, {})
 
     -- Diagnostic configuration
-    vim.diagnostic.config({
+    vim.diagnostic.config {
       virtual_text = false,
       float = {
         source = true,
-      }
-    })
+      },
+    }
 
     -- Sign configuration
     vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })

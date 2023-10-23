@@ -1,8 +1,5 @@
 return {
-  { 'sickill/vim-pasta' }, -- smart formatting on paste
-  { 'tpope/vim-sleuth' }, -- automatically detect indent settings
   { 'wakatime/vim-wakatime' }, -- time tracking
-  { 'tpope/vim-repeat' }, -- Allow plugins to enable repeating of commands
   {
     'whatyouhide/vim-textobj-xmlattr',
     dependencies = 'kana/vim-textobj-user',

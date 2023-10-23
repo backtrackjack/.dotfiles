@@ -29,6 +29,11 @@ return {
         php = { 'pint' },
         blade = { 'blade-formatter' },
         markdown = { 'prettierd' },
+        javascript = { 'prettierd' },
+        typescript = { 'prettierd' },
+        css = { 'prettierd' },
+        yaml = { 'prettierd' },
+        vue = { 'prettierd' },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
