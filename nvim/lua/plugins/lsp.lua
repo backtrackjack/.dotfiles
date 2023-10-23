@@ -89,6 +89,18 @@ return {
     --  Ruby
     require('lspconfig').solargraph.setup { capabilities = capabilities }
 
+    -- Lua
+    require('lspconfig').lua_ls.setup {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' },
+          },
+        },
+      },
+      capabilities = capabilities,
+    }
+
     -- Keymaps
     vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>')
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
