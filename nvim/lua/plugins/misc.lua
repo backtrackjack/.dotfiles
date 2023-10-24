@@ -30,8 +30,8 @@ return {
   {
     'chrishrb/gx.nvim', -- go to url under cursor
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
     },
-    config = true
-  }
+    config = true,
+  },
 }
