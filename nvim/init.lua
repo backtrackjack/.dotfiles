@@ -32,7 +32,6 @@ require('lazy').setup {
     { import = 'plugins' }, -- 'lua/plugins/*.lua'
     { import = 'plugins/mini' }, -- 'lua/plugins/mini/*.lua'
   },
-  defaults = { lazy = false, version = false },
   checker = { enabled = true }, -- automatically check for plugin updates
   install = { colorscheme = { 'kanagawa', 'habamax' } },
   performance = {
