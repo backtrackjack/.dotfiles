@@ -29,12 +29,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require('lazy').setup {
   spec = {
-    -- custom plugins 'lua/plugins/*.lua'
-    { import = 'plugins' },
-    { import = 'plugins/mini' },
+    { import = 'plugins' }, -- 'lua/plugins/*.lua'
+    { import = 'plugins/mini' }, -- 'lua/plugins/mini/*.lua'
   },
   defaults = { lazy = false, version = false },
   checker = { enabled = true }, -- automatically check for plugin updates
+  install = { colorscheme = { 'kanagawa', 'habamax' } },
   performance = {
     rtp = {
       -- disable some rtp plugins
