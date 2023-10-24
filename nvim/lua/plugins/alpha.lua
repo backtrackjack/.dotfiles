@@ -6,7 +6,8 @@ return {
         dashboard.section.header.val = " "
         dashboard.section.buttons.val = {
             dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-            -- dashboard.button("n", " " .. " Notes", ":Neorg index <CR>"),
+            dashboard.button("p", " " .. " Personal Notes", ":ObsidianWorkspace personal<cr> :ObsidianQuickSwitch <CR>"),
+            dashboard.button("w", " " .. " Work Notes", ":ObsidianWorkspace work<cr> :ObsidianQuickSwitch <CR>"),
             dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }

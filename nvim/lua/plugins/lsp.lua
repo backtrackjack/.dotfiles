@@ -95,6 +95,9 @@ return {
       capabilities = capabilities,
     }
 
+    -- Markdown
+    require('lspconfig').marksman.setup { capabilities = capabilities }
+
     -- Keymaps
     vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Line [d]iagnostic info' })
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = 'Previous [d]iagnostic' })
@@ -105,11 +108,6 @@ return {
     vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', { desc = 'Go to [r]eference(s)' })
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
     vim.keymap.set('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = '[r]ename' })
-
-    -- Commands
-    vim.api.nvim_create_user_command('Format', function()
-      vim.lsp.buf.format { timeout_ms = 5000 }
-    end, {})
 
     -- Diagnostic configuration
     vim.diagnostic.config {

@@ -37,6 +37,7 @@ return {
           { mode = 'x', keys = 'z' },
         },
         clues = {
+          { mode = 'n', keys = '<leader>n', desc = '+[n]otes' },
           { mode = 'n', keys = '<leader>f', desc = '+[f]ile' },
           { mode = 'n', keys = '<leader>s', desc = '+[s]earch' },
           { mode = 'n', keys = '<leader>g', desc = '+[g]it' },
@@ -52,7 +53,6 @@ return {
           miniclue.gen_clues.marks(),
           miniclue.gen_clues.registers(),
           miniclue.gen_clues.windows(),
-          miniclue.gen_clues.z(),
         },
         window = {
           config = {

@@ -11,10 +11,10 @@ map('n', '<leader>l', '<cmd>:Lazy<cr>', { desc = '[l]azy' })
 map('i', '<C-c>', '<Esc>')
 
 -- new file
-map('n', '<leader>fn', '<cmd>enew<cr>', { desc = 'New File' })
+map('n', '<leader>fn', '<cmd>enew<cr>', { desc = '[n]ew File' })
 
 -- other buffer
-map('n', '<leader><leader>', '<c-^>', { desc = 'other buffer' })
+map('n', '<leader><leader>', '<c-^>', { desc = 'Other buffer' })
 
 -- Disable annoying command line thing
 map('n', 'q:', ':q<cr>')
