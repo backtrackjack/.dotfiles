@@ -9,7 +9,7 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
       },
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
       'nvim-telescope/telescope-live-grep-args.nvim',
     },
     cmd = { 'Telescope' },
