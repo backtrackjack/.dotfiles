@@ -77,17 +77,17 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 
 -- toggleable things
 map('n', '<leader>us', function()
-  Util.toggle 'spell'
+  require('util').toggle 'spell'
 end, { desc = 'Toggle Spelling' })
 map('n', '<leader>uw', function()
-  Util.toggle 'wrap'
+  require('util').toggle 'wrap'
 end, { desc = 'Toggle Word Wrap' })
 map('n', '<leader>ul', function()
-  Util.toggle('relativenumber', true)
-  Util.toggle 'number'
+  require('util').toggle('relativenumber', true)
+  require('util').toggle 'number'
 end, { desc = 'Toggle Line Numbers' })
 
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map('n', '<leader>uc', function()
-  Util.toggle('conceallevel', false, { 0, conceallevel })
+  require('util').toggle('conceallevel', false, { 0, conceallevel })
 end, { desc = 'Toggle Conceal Level' })
