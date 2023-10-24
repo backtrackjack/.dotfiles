@@ -1,5 +1,6 @@
 return {
   { 'wakatime/vim-wakatime' }, -- time tracking
+  { 'tpope/vim-sleuth' }, -- auto detect indentation
   {
     'whatyouhide/vim-textobj-xmlattr',
     dependencies = 'kana/vim-textobj-user',

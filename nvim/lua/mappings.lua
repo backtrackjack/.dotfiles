@@ -20,8 +20,9 @@ map('n', '<leader><leader>', '<c-^>', { desc = 'other buffer' })
 map('n', 'q:', ':q<cr>')
 
 -- navigate qflist
-map('n', 'H', '<cmd>cprev<cr>', { desc = 'previous quickfix', silent = true })
-map('n', 'L', '<cmd>cnext<cr>', { desc = 'next quickfix', silent = true })
+-- FIXME: figure this one out, H and L better for grapple
+-- map('n', 'H', '<cmd>cprev<cr>', { desc = 'previous quickfix', silent = true })
+-- map('n', 'L', '<cmd>cnext<cr>', { desc = 'next quickfix', silent = true })
 map('n', '<leader>xl', '<cmd>lopen<cr>', { desc = 'Location List' })
 
 -- When text is wrapped, move by terminal rows, not lines, unless a count is provided
