@@ -8,7 +8,9 @@ return {
   {
     'tpope/vim-fugitive', -- GIT
     dependencies = 'tommcdo/vim-fubitive',
-    keys = { { mode = { 'n' }, '<leader>gg', vim.cmd.Git, desc = 'Open fugitive' } },
+    keys = {
+      { mode = { 'n' }, '<leader>gg', vim.cmd.Git, desc = 'Open fugitive' }
+    },
   },
   { 'jwalton512/vim-blade' }, -- blade support
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
@@ -24,7 +26,12 @@ return {
   {
     'folke/trouble.nvim', -- diagnostics in quickfix list
     init = function()
-      vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', { noremap = true, silent = true, desc = 'TroubleToggle' })
+      vim.keymap.set(
+        'n',
+        '<leader>xq',
+        '<cmd>TroubleToggle quickfix<cr>',
+        { noremap = true, silent = true, desc = 'TroubleToggle' }
+      )
     end,
   },
   {
