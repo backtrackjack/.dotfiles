@@ -76,10 +76,23 @@ return {
       local lsp_zero = require 'lsp-zero'
       lsp_zero.extend_cmp()
 
+      require('luasnip/loaders/from_snipmate').lazy_load()
+
       -- And you can configure cmp even more, if you want to.
       local cmp = require 'cmp'
 
       cmp.setup {
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end,
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'buffer' },
+          { name = 'path' },
+        },
         formatting = lsp_zero.cmp_format(),
         mapping = cmp.mapping.preset.insert {
           ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
@@ -103,11 +116,22 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'williamboman/mason-lspconfig.nvim',
       'b0o/schemastore.nvim',
+      'folke/noice.nvim',
     },
     config = function()
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require 'lsp-zero'
+      local lspconfig = require 'lspconfig'
+
       lsp_zero.extend_lspconfig()
+
+      -- Sign configuration
+      lsp_zero.set_sign_icons {
+        error = '',
+        warn = '',
+        hint = '',
+        info = '',
+      }
 
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
@@ -127,90 +151,96 @@ return {
         ensure_installed = {},
         handlers = {
           lsp_zero.default_setup, -- auto configure new language servers
-        },
-      }
 
-      -- more specific lsp config
-      local lspconfig = require 'lspconfig'
+          -- lua
+          lua_ls = function()
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+          end,
 
-      -- lua
-      lspconfig.lua_ls.setup {
-        on_attach = function()
-          require('lspconfig').lua_ls.setup { lsp_zero.nvim_lua_ls() }
-        end,
-      }
+          -- php
+          intelephense = function()
+            lspconfig.intelephense.setup {
+              commands = {
+                IntelephenseIndex = {
+                  function()
+                    vim.lsp.buf.execute_command { command = 'intelephense.index.workspace' }
+                  end,
+                },
+              },
+              on_init = function(client)
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+              end,
+            }
+          end,
 
-      -- PHP
-      lspconfig.intelephense.setup {
-        commands = {
-          IntelephenseIndex = {
-            function()
-              vim.lsp.buf.execute_command { command = 'intelephense.index.workspace' }
-            end,
-          },
-        },
-        on_init = function(client)
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end,
-      }
+          phpactor = function()
+            lspconfig.phpactor.setup {
+              on_init = function(client)
+                client.server_capabilities.completionProvider = false
+                client.server_capabilities.hoverProvider = false
+                client.server_capabilities.implementationProvider = false
+                client.server_capabilities.referencesProvider = false
+                client.server_capabilities.renameProvider = false
+                client.server_capabilities.selectionRangeProvider = false
+                client.server_capabilities.signatureHelpProvider = false
+                client.server_capabilities.typeDefinitionProvider = false
+                client.server_capabilities.workspaceSymbolProvider = false
+                client.server_capabilities.definitionProvider = false
+                client.server_capabilities.documentHighlightProvider = false
+                client.server_capabilities.documentSymbolProvider = false
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+              end,
+              init_options = {
+                ['language_server_phpstan.enabled'] = false,
+                ['language_server_psalm.enabled'] = false,
+              },
+              handlers = {
+                ['textDocument/publishDiagnostics'] = function() end,
+              },
+            }
+          end,
 
-      lspconfig.phpactor.setup {
-        on_init = function(client)
-          client.server_capabilities.completionProvider = false
-          client.server_capabilities.hoverProvider = false
-          client.server_capabilities.implementationProvider = false
-          client.server_capabilities.referencesProvider = false
-          client.server_capabilities.renameProvider = false
-          client.server_capabilities.selectionRangeProvider = false
-          client.server_capabilities.signatureHelpProvider = false
-          client.server_capabilities.typeDefinitionProvider = false
-          client.server_capabilities.workspaceSymbolProvider = false
-          client.server_capabilities.definitionProvider = false
-          client.server_capabilities.documentHighlightProvider = false
-          client.server_capabilities.documentSymbolProvider = false
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end,
-        init_options = {
-          ['language_server_phpstan.enabled'] = false,
-          ['language_server_psalm.enabled'] = false,
-        },
-        handlers = {
-          ['textDocument/publishDiagnostics'] = function() end,
-        },
-      }
+          -- Vue, JavaScript, TypeScript
+          volar = function()
+            lspconfig.volar.setup {
+              on_init = function(client)
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+              end,
+              -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
+              -- This drastically improves the responsiveness of diagnostic updates on change
+              filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+            }
+          end,
 
-      -- Vue, JavaScript, TypeScript
-      lspconfig.volar.setup {
-        on_init = function(client)
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end,
-        -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
-        -- This drastically improves the responsiveness of diagnostic updates on change
-        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-      }
+          -- JSON
+          jsonls = function()
+            lspconfig.jsonls.setup {
+              settings = {
+                json = {
+                  schemas = require('schemastore').json.schemas(),
+                },
+              },
+            }
+          end,
 
-      -- JSON
-      lspconfig.jsonls.setup {
-        settings = {
-          json = {
-            schemas = require('schemastore').json.schemas(),
-          },
-        },
-      }
-
-      -- YAML
-      lspconfig.yamlls.setup {
-        settings = {
-          yaml = {
-            schemaStore = {
-              enable = false,
-              url = '',
-            },
-            schemas = require('schemastore').yaml.schemas(),
-          },
+          -- YAML
+          yamlls = function()
+            lspconfig.yamlls.setup {
+              settings = {
+                yaml = {
+                  schemaStore = {
+                    enable = false,
+                    url = '',
+                  },
+                  schemas = require('schemastore').yaml.schemas(),
+                },
+              },
+            }
+          end,
         },
       }
 
@@ -221,12 +251,6 @@ return {
           source = true,
         },
       }
-
-      -- Sign configuration
-      vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-      vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-      vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-      vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
     end,
   },
 }

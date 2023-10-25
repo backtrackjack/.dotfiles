@@ -14,9 +14,7 @@ return {
     },
   },
   opts = function()
-    ---@class ConformOpts
     local opts = {
-      -- LazyVim will use these options when formatting with the conform.nvim formatter
       format = {
         timeout_ms = 3000,
         async = false, -- not recommended to change
@@ -33,6 +31,7 @@ return {
         css = { 'prettierd' },
         yaml = { 'prettierd' },
         vue = { 'prettierd' },
+        rust = { 'rust_analyzer' },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
