@@ -49,11 +49,22 @@ return {
         path = '~/.dotfiles/obsidian/vaults/work',
       },
     },
+    note_id_func = function(title)
+      local suffix = ''
+      if title ~= nil then
+        suffix = title:gsub(' ', '-'):gsub('[^A-Za-z0-9-]', ''):lower()
+      else
+        for _ = 1, 4 do
+          suffix = suffix .. string.char(math.random(65, 90))
+        end
+      end
+      return tostring(os.time()) .. "-" .. suffix
+    end,
     finder = 'fzf-lua',
     -- Optional, key mappings.
     mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ['gf'] = {
+      -- Overrides the 'gx' mapping to work on markdown/wiki links within your vault.
+      ['gx'] = {
         action = function()
           return require('obsidian').util.gf_passthrough()
         end,
@@ -61,6 +72,10 @@ return {
       },
     },
     overwrite_mappings = true, -- blocks annoying conflict error with mini/clue.lua
+    follow_url_func = function(url)
+      -- Open url with system default browser or url handler
+      vim.fn.jobstart { 'open', url } -- macos
+    end,
   },
   config = function(_, opts)
     require('obsidian').setup(opts)
