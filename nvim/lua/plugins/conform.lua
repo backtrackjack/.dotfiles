@@ -1,7 +1,7 @@
 return {
   'stevearc/conform.nvim',
   dependencies = { 'mason.nvim' },
-  lazy = true,
+  event = { 'VeryLazy' },
   cmd = 'ConformInfo',
   keys = {
     {
@@ -11,6 +11,14 @@ return {
       end,
       mode = { 'n', 'v' },
       desc = 'Format File',
+    },
+    {
+      '<leader>cF',
+      function()
+        require('conform').format { formatters = { 'injected' } }
+      end,
+      mode = { 'n', 'v' },
+      desc = '[F]ormat injected langs',
     },
   },
   opts = function()
@@ -31,7 +39,6 @@ return {
         css = { 'prettierd' },
         yaml = { 'prettierd' },
         vue = { 'prettierd' },
-        rust = { 'rust_analyzer' },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.

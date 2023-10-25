@@ -1,17 +1,6 @@
 return {
   'epwalsh/obsidian.nvim',
-  cmd = {
-    'ObsidianLink',
-    'ObsidianLinkNew',
-    'ObsidianBacklinks',
-    'ObsidianYesterday',
-    'ObsidianToday',
-    'ObsidianNew',
-    'ObsidianOpen',
-    'ObsidianSearch',
-    'ObsidianQuickSwitch',
-    'ObsidianWorkspace',
-  },
+  lazy = false,
   keys = {
     { '<leader>np', '<cmd>ObsidianWorkspace personal<cr>', desc = 'set [p]ersonal workspace' },
     { '<leader>nw', '<cmd>ObsidianWorkspace work<cr>', desc = 'set [w]ork workspace' },
@@ -24,10 +13,6 @@ return {
     { '<leader>nb', '<cmd>ObsidianBacklinks<cr>', desc = '[b]acklinks' },
     { 'gl', '<cmd>ObsidianLinkNew<cr>', desc = '[l]ink selection to new note' },
     { 'gL', '<cmd>ObsidianLink<cr>', desc = '[L]ink selection to existing note' },
-  },
-  event = {
-    'BufReadPre ' .. vim.fn.expand '~' .. '/JSObsidian/**.md',
-    'BufNewFile ' .. vim.fn.expand '~' .. '/JSObsidian/**.md',
   },
   dependencies = {
     'ibhagwan/fzf-lua',
@@ -58,28 +43,38 @@ return {
           suffix = suffix .. string.char(math.random(65, 90))
         end
       end
-      return tostring(os.time()) .. "-" .. suffix
+      return tostring(os.time()) .. '-' .. suffix
     end,
     finder = 'fzf-lua',
     -- Optional, key mappings.
     mappings = {
-      -- Overrides the 'gx' mapping to work on markdown/wiki links within your vault.
-      ['gx'] = {
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+      ['gf'] = {
         action = function()
           return require('obsidian').util.gf_passthrough()
         end,
-        opts = { noremap = false, expr = true, buffer = true },
+        opts = { noremap = true, expr = true, buffer = true },
       },
     },
-    overwrite_mappings = true, -- blocks annoying conflict error with mini/clue.lua
+    log_level = vim.log.levels.ERROR,
     follow_url_func = function(url)
       -- Open url with system default browser or url handler
       vim.fn.jobstart { 'open', url } -- macos
     end,
+    open_app_foreground = true,
   },
-  config = function(_, opts)
-    require('obsidian').setup(opts)
-
+  init = function()
     vim.g.vim_markdown_frontmatter = 1
+  end,
+  config = function(_, opts)
+    local obs = require 'obsidian'
+    obs.setup(opts)
+    vim.keymap.set('n', 'gf', function()
+      if require('obsidian').util.cursor_on_markdown_link() then
+        return '<cmd>ObsidianFollowLink<CR>'
+      else
+        return 'gf'
+      end
+    end, { noremap = false, expr = true })
   end,
 }
