@@ -5,7 +5,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- lazy
-map('n', '<leader>l', '<cmd>:Lazy<cr>', { desc = '[l]azy' })
+map('n', '<leader>ll', '<cmd>:Lazy<cr>', { desc = '[l]azy' })
+map('n', '<leader>lc', '<cmd>:e $MYVIMRC<cr>', { desc = '[c]onfig' })
 
 -- make ctrl+c act like esc
 map('i', '<C-c>', '<Esc>')
