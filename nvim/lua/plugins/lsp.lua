@@ -6,7 +6,6 @@ return {
     'b0o/schemastore.nvim',
   },
   config = function()
-
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     -- PHP
@@ -73,6 +72,20 @@ return {
       settings = {
         json = {
           schemas = require('schemastore').json.schemas(),
+        },
+      },
+    }
+
+    -- YAML
+    require('lspconfig').yamlls.setup {
+      capabilities = capabilities,
+      settings = {
+        yaml = {
+          schemaStore = {
+            enable = false,
+            url = '',
+          },
+          schemas = require('schemastore').yaml.schemas(),
         },
       },
     }

@@ -4,6 +4,7 @@ return {
   build = ':MasonUpdate',
   opts = {
     ensure_installed = {
+      'blade-formatter',
       'html-lsp',
       'intelephense',
       'jq',
@@ -12,7 +13,7 @@ return {
       'marksman',
       'phpactor',
       'pint',
-      'prettier',
+      'prettierd',
       'rust-analyzer',
       'shfmt',
       'solargraph',
