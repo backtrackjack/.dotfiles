@@ -22,8 +22,11 @@ return {
     },
     lsp = {
       hover = {
-        silent = true,
+        enabled = false,
       },
+      signature = {
+        enabled = false
+      }
     },
   },
   -- stylua: ignore
