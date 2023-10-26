@@ -3,10 +3,26 @@ return {
   cmd = { 'TroubleToggle', 'Trouble' },
   opts = { use_diagnostic_signs = true },
   keys = {
-    { '<leader>xx', '<cmd>TroubleToggle document_diagnostics<cr>', desc = 'Document Diagnosti[x] (Trouble)' },
-    { '<leader>xX', '<cmd>TroubleToggle workspace_diagnostics<cr>', desc = 'Workspace Diagnosti[X] (Trouble)' },
-    { '<leader>xL', '<cmd>TroubleToggle loclist<cr>', desc = '[L]ocation List (Trouble)' },
-    { '<leader>xQ', '<cmd>TroubleToggle quickfix<cr>', desc = '[Q]uickfix List (Trouble)' },
+    {
+      '<leader>xx',
+      '<cmd>TroubleToggle document_diagnostics<cr>',
+      desc = 'Document Diagnosti[x] (Trouble)'
+    },
+    {
+      '<leader>xX',
+      '<cmd>TroubleToggle workspace_diagnostics<cr>',
+      desc = 'Workspace Diagnosti[X] (Trouble)'
+    },
+    {
+      '<leader>xL',
+      '<cmd>TroubleToggle loclist<cr>',
+      desc = '[L]ocation List (Trouble)'
+    },
+    {
+      '<leader>xQ',
+      '<cmd>TroubleToggle quickfix<cr>',
+      desc = '[Q]uickfix List (Trouble)'
+    },
     {
       '[q',
       function()
