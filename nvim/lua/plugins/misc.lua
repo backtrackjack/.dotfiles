@@ -38,12 +38,6 @@ return {
     end,
   },
   {
-    'folke/trouble.nvim', -- diagnostics in quickfix list
-    init = function()
-      vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', { noremap = true, silent = true, desc = 'TroubleToggle' })
-    end,
-  },
-  {
     'chrishrb/gx.nvim', -- go to url under cursor
     dependencies = {
       'nvim-lua/plenary.nvim',
