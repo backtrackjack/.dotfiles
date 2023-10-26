@@ -35,6 +35,9 @@ return {
           -- `z` key
           { mode = 'n', keys = 'z' },
           { mode = 'x', keys = 'z' },
+
+          { mode = 'n', keys = ']'},
+          { mode = 'n', keys = '['}
         },
         clues = {
           { mode = 'n', keys = '<leader>c', desc = '+[c]ode' },

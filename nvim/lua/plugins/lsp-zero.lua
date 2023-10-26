@@ -23,7 +23,6 @@ return {
         'jq',
         'json-lsp',
         'lua-language-server',
-        'marksman',
         'phpactor',
         'pint',
         'prettierd',
@@ -137,8 +136,6 @@ return {
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
         vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Line [d]iagnostic info' })
-        vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = 'Previous [d]iagnostic' })
-        vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = 'Next [d]iagnostic' })
         vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = 'Go to [d]efinition' })
         vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = '[a]ction' })
         vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { desc = 'Go to [i]mplementation' })
