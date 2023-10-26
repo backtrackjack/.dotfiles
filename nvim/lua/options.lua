@@ -54,5 +54,4 @@ opt.backup = false -- Disable creation of backup files
 opt.undodir = os.getenv 'HOME' .. '/.vim/undodir' -- Set the directory for undo files
 opt.undofile = true -- Enable persistent undo
 opt.isfname:append '@-@' -- Allow '@' and '-' as part of a word in file names
-opt.titlestring = '%f // nvim' -- Set the title of the window to the name of the current file
 opt.wrap = false -- Disable line wrapping

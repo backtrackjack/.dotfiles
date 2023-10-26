@@ -1,11 +1,10 @@
 return {
-  {
-    'NvChad/nvim-colorizer.lua',
-    opts = {
-      user_default_options = {
-        names = false,
-        tailwind = true,
-      },
+  'NvChad/nvim-colorizer.lua',
+  lazy = false,
+  opts = {
+    user_default_options = {
+      names = false,
+      tailwind = true,
     },
   },
 }
