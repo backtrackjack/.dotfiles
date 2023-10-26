@@ -15,18 +15,6 @@ return {
     'whatyouhide/vim-textobj-xmlattr', -- Text objects for HTML attributes
     dependencies = 'kana/vim-textobj-user',
   },
-  {
-    'tpope/vim-fugitive', -- GIT
-    dependencies = {
-      'tommcdo/vim-fubitive',
-      'tpope/vim-rhubarb',
-    },
-    cmd = { 'GBrowse', 'G' },
-    keys = {
-      { mode = { 'n' }, '<leader>gg', '<cmd>vertical Git<cr>', desc = 'Open fugitive' },
-    },
-  },
-  { 'jwalton512/vim-blade' }, -- blade support
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
   {
     'github/copilot.vim', -- taking our jobs

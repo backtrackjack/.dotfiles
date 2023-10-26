@@ -1,7 +1,7 @@
 return {
     'echasnovski/mini.animate',
     init = function()
-        animate = require('mini.animate')
+        local animate = require('mini.animate')
         animate.setup({
         scroll = {
             enable = false,
