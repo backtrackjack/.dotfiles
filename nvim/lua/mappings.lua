@@ -20,10 +20,6 @@ map('n', '<leader><leader>', '<c-^>', { desc = 'Other buffer' })
 -- Disable annoying command line thing
 map('n', 'q:', ':q<cr>')
 
--- navigate qflist
--- FIXME: figure this one out, H and L better for grapple
--- map('n', 'H', '<cmd>cprev<cr>', { desc = 'previous quickfix', silent = true })
--- map('n', 'L', '<cmd>cnext<cr>', { desc = 'next quickfix', silent = true })
 map('n', '<leader>xl', '<cmd>lopen<cr>', { desc = 'Location List' })
 
 -- When text is wrapped, move by terminal rows, not lines, unless a count is provided
@@ -71,10 +67,6 @@ end
 
 -- highlight under cursor
 map('n', '<leader>ui', vim.show_pos, { desc = 'Inspect Pos' })
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 
 -- toggleable things
 map('n', '<leader>us', function()

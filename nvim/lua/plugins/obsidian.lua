@@ -18,7 +18,6 @@ return {
     'ibhagwan/fzf-lua',
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
-    'preservim/vim-markdown',
   },
   opts = {
     completion = {
@@ -34,6 +33,9 @@ return {
         path = '~/.dotfiles/obsidian/vaults/work',
       },
     },
+    daily_notes = {
+      folder = 'dailies',
+    },
     note_id_func = function(title)
       local suffix = ''
       if title ~= nil then
@@ -47,15 +49,6 @@ return {
     end,
     finder = 'fzf-lua',
     -- Optional, key mappings.
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ['gf'] = {
-        action = function()
-          return require('obsidian').util.gf_passthrough()
-        end,
-        opts = { noremap = true, expr = true, buffer = true },
-      },
-    },
     log_level = vim.log.levels.ERROR,
     follow_url_func = function(url)
       -- Open url with system default browser or url handler
@@ -63,9 +56,6 @@ return {
     end,
     open_app_foreground = true,
   },
-  init = function()
-    vim.g.vim_markdown_frontmatter = 1
-  end,
   config = function(_, opts)
     local obs = require 'obsidian'
     obs.setup(opts)
