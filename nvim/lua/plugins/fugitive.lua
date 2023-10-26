@@ -35,7 +35,7 @@ return {
         map('n', '<leader>p', ':Git pull --rebase<cr>', { desc = '[p]ull' })
 
         -- track branch
-        map('n', '<leader>t', ':Git push -u origin ', { desc = '[t]rack branch' })
+        map('n', '<leader>T', ':Git push -u origin ', { desc = '[T]rack branch' })
       end,
     })
   end,

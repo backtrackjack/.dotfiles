@@ -8,8 +8,8 @@ return {
       vim.g.rooter_patterns = { '.git', 'composer.json' }
     end,
     config = function()
-      vim.cmd('Rooter')
-    end
+      vim.cmd 'Rooter'
+    end,
   },
   {
     'whatyouhide/vim-textobj-xmlattr', -- Text objects for HTML attributes
@@ -31,5 +31,9 @@ return {
       'nvim-lua/plenary.nvim',
     },
     config = true,
+  },
+  {
+    'monaqa/dial.nvim', -- better increment/decrement
+    keys = { '<C-a>', { '<C-x>', mode = 'n' } },
   },
 }

@@ -1,12 +1,36 @@
 return {
   'RRethy/vim-illuminate',
-  event = 'BufEnter',
-  config = function()
-    require('illuminate').configure({
-      min_count_to_highlight = 2,
-      delay = 1000,
+  event = 'VeryLazy',
+  opts = {
+    delay = 200,
+    large_file_cutoff = 2000,
+    large_file_overrides = {
       providers = { 'lsp' },
+    },
+  },
+  config = function(_, opts)
+    require('illuminate').configure(opts)
+
+    local function map(key, dir, buffer)
+      vim.keymap.set('n', key, function()
+        require('illuminate')['goto_' .. dir .. '_reference'](false)
+      end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. ' Reference', buffer = buffer })
+    end
+
+    map(']]', 'next')
+    map('[[', 'prev')
+
+    -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function()
+        local buffer = vim.api.nvim_get_current_buf()
+        map(']]', 'next', buffer)
+        map('[[', 'prev', buffer)
+      end,
     })
-    -- TODO: default <c-n> and <c-p> mappings seem to be overridden by cmp
   end,
+  keys = {
+    { ']]', desc = 'Next Reference' },
+    { '[[', desc = 'Prev Reference' },
+  },
 }
