@@ -1,6 +1,6 @@
 return {
   'folke/todo-comments.nvim',
-  cmd = { 'TodoTrouble' },
+  lazy = false,
   config = true,
   keys = {
     {

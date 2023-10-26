@@ -1,5 +1,6 @@
 return {
   'echasnovski/mini.hipatterns',
+  lazy = false,
   opts = function()
     local hi = require 'mini.hipatterns'
     return {
