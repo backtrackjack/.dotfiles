@@ -35,6 +35,7 @@ return {
     },
     daily_notes = {
       folder = 'dailies',
+      date_format = '%d-%m-%Y',
     },
     note_id_func = function(title)
       local suffix = ''
