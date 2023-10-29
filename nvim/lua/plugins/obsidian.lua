@@ -59,11 +59,11 @@ return {
   config = function(_, opts)
     local obs = require 'obsidian'
     obs.setup(opts)
-    vim.keymap.set('n', 'gf', function()
+    vim.keymap.set('n', 'gx', function()
       if require('obsidian').util.cursor_on_markdown_link() then
         return '<cmd>ObsidianFollowLink<CR>'
       else
-        return 'gf'
+        return 'gx'
       end
     end, { noremap = false, expr = true })
   end,
