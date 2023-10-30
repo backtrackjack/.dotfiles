@@ -65,6 +65,6 @@ return {
       else
         return 'gx'
       end
-    end, { noremap = false, expr = true })
+    end, { noremap = false, expr = true, desc = 'follow link'})
   end,
 }
