@@ -1,3 +1,9 @@
 [submodule "obsidian"]
 	path = obsidian
 	url = git@github.com:backtrackjack/notes.git
+[submodule "tmux-sensible"]
+	path = tmux/.tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible.git
+[submodule "tpm"]
+	path = tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
