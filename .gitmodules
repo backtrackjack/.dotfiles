@@ -1,3 +1,6 @@
 [submodule "notes"]
     path = obsidian
     url = git@github.com:backtrackjack/notes.git
+[submodule "obsidian"]
+	path = obsidian
+	url = git@github.com:backtrackjack/notes.git
