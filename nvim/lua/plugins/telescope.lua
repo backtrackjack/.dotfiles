@@ -10,14 +10,15 @@ return {
         build = 'make',
       },
       'nvim-tree/nvim-web-devicons',
-      'nvim-telescope/telescope-live-grep-args.nvim',
     },
     cmd = { 'Telescope' },
     keys = {
       {
         '<leader>/',
         function()
-          require('telescope').extensions.live_grep_args.live_grep_args()
+          require('telescope.builtin').live_grep {
+            additional_args = { '--fixed-strings' }
+          }
         end,
         desc = 'Grep everything',
       },
@@ -116,16 +117,6 @@ return {
             },
           },
           file_ignore_patterns = { '.git/' },
-        },
-        extensions = {
-          live_grep_args = {
-            mappings = {
-              i = {
-                ['<C-k>'] = require('telescope-live-grep-args.actions').quote_prompt(),
-                ['<C-i>'] = require('telescope-live-grep-args.actions').quote_prompt { postfix = ' --iglob ' },
-              },
-            },
-          },
         },
         pickers = {
           find_files = {

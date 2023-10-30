@@ -49,7 +49,6 @@ return {
       return tostring(os.time()) .. '-' .. suffix
     end,
     finder = 'fzf-lua',
-    -- Optional, key mappings.
     log_level = vim.log.levels.WARNING,
     follow_url_func = function(url)
       -- Open url with system default browser or url handler
