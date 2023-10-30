@@ -26,11 +26,11 @@ return {
     workspaces = {
       {
         name = 'personal',
-        path = '~/.dotfiles/obsidian/vaults/personal',
+        path = '~/.dotfiles/notes/vaults/personal',
       },
       {
         name = 'work',
-        path = '~/.dotfiles/obsidian/vaults/work',
+        path = '~/.dotfiles/notes/vaults/work',
       },
     },
     daily_notes = {
