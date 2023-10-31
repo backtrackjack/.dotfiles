@@ -46,7 +46,6 @@ return {
           { mode = 'n', keys = '<leader>l', desc = '+[l]azy' },
           { mode = 'n', keys = '<leader>m', desc = '+[m]AKE IT' },
           { mode = 'n', keys = '<leader>n', desc = '+[n]otes' },
-          { mode = 'n', keys = '<leader>p', desc = '+[p]hpactor' },
           { mode = 'n', keys = '<leader>s', desc = '+[s]earch' },
           { mode = 'n', keys = '<leader>t', desc = '+[t]est' },
           { mode = 'n', keys = '<leader>u', desc = '+[u]I' },

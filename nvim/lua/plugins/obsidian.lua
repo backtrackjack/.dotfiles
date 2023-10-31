@@ -49,7 +49,7 @@ return {
       return tostring(os.time()) .. '-' .. suffix
     end,
     finder = 'fzf-lua',
-    log_level = vim.log.levels.WARNING,
+    log_level = vim.log.levels.ERROR,
     follow_url_func = function(url)
       -- Open url with system default browser or url handler
       vim.fn.jobstart { 'open', url } -- macos
@@ -58,13 +58,19 @@ return {
   },
   config = function(_, opts)
     local obs = require 'obsidian'
+    opts.mappings = {
+      ["gf"] = {
+        action = function()
+          return obs.util.gf_passthrough()
+        end,
+        opts = {
+          noremap = false,
+          expr = true,
+          buffer = true,
+          desc = "follow link"
+        }
+      }
+    }
     obs.setup(opts)
-    vim.keymap.set('n', 'gx', function()
-      if require('obsidian').util.cursor_on_markdown_link() then
-        return '<cmd>ObsidianFollowLink<CR>'
-      else
-        return 'gx'
-      end
-    end, { noremap = false, expr = true, desc = 'follow link'})
   end,
 }
