@@ -32,8 +32,4 @@ return {
     },
     config = true,
   },
-  {
-    'monaqa/dial.nvim', -- better increment/decrement
-    keys = { '<C-a>', { '<C-x>', mode = 'n' } },
-  },
 }

@@ -36,8 +36,8 @@ return {
           { mode = 'n', keys = 'z' },
           { mode = 'x', keys = 'z' },
 
-          { mode = 'n', keys = ']'},
-          { mode = 'n', keys = '['}
+          { mode = 'n', keys = ']' },
+          { mode = 'n', keys = '[' },
         },
         clues = {
           { mode = 'n', keys = '<leader>c', desc = '+[c]ode' },
@@ -51,6 +51,7 @@ return {
           { mode = 'n', keys = '<leader>u', desc = '+[u]I' },
           { mode = 'n', keys = '<leader>w', desc = '+[w]indow' },
           { mode = 'n', keys = '<leader>x', desc = '+quickfi[x]' },
+          { mode = 'x', keys = '<leader>p', desc = '[p]aste without replacing register' },
           miniclue.gen_clues.builtin_completion(),
           miniclue.gen_clues.g(),
           miniclue.gen_clues.marks(),

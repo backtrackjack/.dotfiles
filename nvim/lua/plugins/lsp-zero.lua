@@ -73,13 +73,13 @@ return {
       'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets',
     },
     config = function()
       -- Here is where you configure the autocompletion settings.
       local lsp_zero = require 'lsp-zero'
       lsp_zero.extend_cmp()
 
-      require('luasnip.loaders.from_snipmate').lazy_load()
       require('luasnip.loaders.from_vscode').lazy_load()
 
       -- And you can configure cmp even more, if you want to.

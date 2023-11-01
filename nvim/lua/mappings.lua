@@ -4,6 +4,8 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+map('x', '<leader>p', '"_dP', { desc = '[p]aste without replacing register' })
+
 -- lazy
 map('n', '<leader>ll', '<cmd>:Lazy<cr>', { desc = '[l]azy' })
 map('n', '<leader>lc', '<cmd>:e $MYVIMRC<cr>', { desc = '[c]onfig' })
