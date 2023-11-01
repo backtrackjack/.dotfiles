@@ -15,6 +15,11 @@ return {
     'ibhagwan/fzf-lua',
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
+    {
+      'lukas-reineke/headlines.nvim',
+      dependencies = 'nvim-treesitter/nvim-treesitter',
+      config = true,
+    },
   },
   opts = {
     completion = {
@@ -52,7 +57,7 @@ return {
   config = function(_, opts)
     local obs = require 'obsidian'
     opts.mappings = {
-      ["gf"] = {
+      ['gf'] = {
         action = function()
           return obs.util.gf_passthrough()
         end,
@@ -60,9 +65,9 @@ return {
           noremap = false,
           expr = true,
           buffer = true,
-          desc = "follow link"
-        }
-      }
+          desc = 'follow link',
+        },
+      },
     }
     obs.setup(opts)
   end,
