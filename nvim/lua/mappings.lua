@@ -86,3 +86,16 @@ local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map('n', '<leader>uc', function()
   require('util').toggle('conceallevel', false, { 0, conceallevel })
 end, { desc = 'Toggle Conceal Level' })
+
+map('n', '<leader>nt', function()
+  local todo = vim.fn.getcwd() .. '/todo.md'
+  if vim.fn.filereadable(todo) == 1 then
+    vim.cmd('e ' .. todo)
+  else
+    vim.cmd 'e ~/.dotfiles/notes/vaults/main/todo.md'
+  end
+end, { desc = 'Local [t]odo' })
+
+map('n', '<leader>nT', function()
+  vim.cmd 'e ~/.dotfiles/notes/vaults/main/todo.md'
+end, { desc = 'Global [T]odo'})
