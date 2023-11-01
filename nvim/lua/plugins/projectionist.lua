@@ -29,6 +29,12 @@ return {
                         'resources/views/livewire/{snakecase|hyphenate}.blade.php',
                     }
                 },
+                ['app/Livewire/*.php'] = { -- livewire 3 default folder
+                    type = 'livewire',
+                    alternate = {
+                        'resources/views/livewire/{snakecase|hyphenate}.blade.php',
+                    }
+                },
                 ['resources/views/livewire/*.blade.php'] = {
                     type = 'livewire-view',
                     alternate = {

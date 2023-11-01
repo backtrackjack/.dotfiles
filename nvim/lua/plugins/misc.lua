@@ -22,4 +22,11 @@ return {
     },
     config = true,
   },
+  {
+    'simrat39/symbols-outline.nvim', -- outline symbols in file
+    keys = {
+      { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "[s]ymbols outline" },
+    },
+    config = true,
+  }
 }

@@ -7,8 +7,7 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button('f', ' ' .. ' Find file', ':Telescope find_files <CR>'),
       dashboard.button('r', ' ' .. ' Recent', ':Telescope oldfiles <CR>'),
-      dashboard.button('p', '󱨋 ' .. ' Personal Notes', ':ObsidianWorkspace personal<cr> :ObsidianQuickSwitch <CR>'),
-      dashboard.button('w', '󱓧 ' .. ' Work Notes', ':ObsidianWorkspace work<cr> :ObsidianQuickSwitch <CR>'),
+      dashboard.button('n', '󱓧 ' .. ' Notes', ':ObsidianQuickSwitch <CR>'),
       dashboard.button('c', ' ' .. ' Config', ':e $MYVIMRC <CR>'),
       dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
     }
@@ -27,6 +26,16 @@ return {
     return dashboard
   end,
   config = function(_, dashboard)
+    if vim.o.filetype == 'lazy' then
+      vim.cmd.close()
+      vim.api.nvim_create_autocmd('User', {
+        once = true,
+        pattern = 'AlphaReady',
+        callback = function()
+          require('lazy').show()
+        end,
+      })
+    end
     require('alpha').setup(dashboard.opts)
   end,
 }

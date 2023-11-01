@@ -2,8 +2,6 @@ return {
   'epwalsh/obsidian.nvim',
   lazy = false,
   keys = {
-    { '<leader>np', '<cmd>ObsidianWorkspace personal<cr>', desc = 'set [p]ersonal workspace' },
-    { '<leader>nw', '<cmd>ObsidianWorkspace work<cr>', desc = 'set [w]ork workspace' },
     { '<leader>nf', '<cmd>ObsidianQuickSwitch<cr>', desc = '[f]ind note' },
     { '<leader>ns', '<cmd>ObsidianSearch<cr>', desc = '[s]earch' },
     { '<leader>no', '<cmd>ObsidianOpen<cr>', desc = '[o]pen in obsidian' },
@@ -25,12 +23,8 @@ return {
     },
     workspaces = {
       {
-        name = 'personal',
-        path = '~/.dotfiles/notes/vaults/personal',
-      },
-      {
-        name = 'work',
-        path = '~/.dotfiles/notes/vaults/work',
+        name = 'main',
+        path = '~/.dotfiles/notes/vaults/main',
       },
     },
     daily_notes = {
