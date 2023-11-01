@@ -2,16 +2,6 @@ return {
   { 'wakatime/vim-wakatime' }, -- time tracking
   { 'tpope/vim-sleuth' }, -- auto detect indentation
   {
-    'airblade/vim-rooter', -- detect root directory of project
-    init = function()
-      vim.g.rooter_manual_only = 1
-      vim.g.rooter_patterns = { '.git', 'composer.json' }
-    end,
-    config = function()
-      vim.cmd 'Rooter'
-    end,
-  },
-  {
     'whatyouhide/vim-textobj-xmlattr', -- Text objects for HTML attributes
     dependencies = 'kana/vim-textobj-user',
   },
