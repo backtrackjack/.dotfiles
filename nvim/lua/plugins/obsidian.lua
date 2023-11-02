@@ -15,11 +15,6 @@ return {
     'ibhagwan/fzf-lua',
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
-    {
-      'lukas-reineke/headlines.nvim',
-      dependencies = 'nvim-treesitter/nvim-treesitter',
-      config = true,
-    },
   },
   opts = {
     completion = {
