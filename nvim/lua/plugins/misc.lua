@@ -25,8 +25,14 @@ return {
   {
     'simrat39/symbols-outline.nvim', -- outline symbols in file
     keys = {
-      { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "[s]ymbols outline" },
+      { '<leader>cs', '<cmd>SymbolsOutline<cr>', desc = '[s]ymbols outline' },
     },
     config = true,
-  }
+  },
+  {
+    'lukas-reineke/headlines.nvim', -- pretty headings
+    ft = { 'markdown' },
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = true,
+  },
 }
