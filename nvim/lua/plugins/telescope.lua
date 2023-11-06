@@ -35,9 +35,9 @@ return {
         desc = '[F]ind files more harder',
       },
       {
-        '<leader>b',
+        '<leader>ba',
         '<cmd>Telescope buffers<cr>',
-        desc = 'List active [b]uffers',
+        desc = '[a]ctive',
       },
       -- search
       {

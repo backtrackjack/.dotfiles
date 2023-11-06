@@ -40,6 +40,7 @@ return {
           { mode = 'n', keys = '[' },
         },
         clues = {
+          { mode = 'n', keys = '<leader>b', desc = '+[b]uffer' },
           { mode = 'n', keys = '<leader>c', desc = '+[c]ode' },
           { mode = 'n', keys = '<leader>f', desc = '+[f]ile' },
           { mode = 'n', keys = '<leader>g', desc = '+[g]it' },

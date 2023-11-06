@@ -5,7 +5,6 @@ return {
     require('nvim-treesitter.install').update { with_sync = true }
   end,
   dependencies = {
-    'nvim-treesitter/playground',
     {
       'JoosepAlviste/nvim-ts-context-commentstring',
       opts = {
@@ -60,7 +59,7 @@ return {
     auto_install = true,
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = { "markdown" }
+      additional_vim_regex_highlighting = { 'markdown' },
     },
     indent = {
       enable = true,
@@ -81,6 +80,7 @@ return {
           ['af'] = '@function.outer',
           ['ia'] = '@parameter.inner',
           ['aa'] = '@parameter.outer',
+          ['ac'] = '@comment.outer',
         },
       },
     },

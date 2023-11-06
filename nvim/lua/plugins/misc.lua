@@ -1,11 +1,12 @@
 return {
   { 'wakatime/vim-wakatime' }, -- time tracking
   { 'tpope/vim-sleuth' }, -- auto detect indentation
+  { 'monaqa/dial.nvim' }, -- increment/decrement numbers}
+  { 'LunarVim/bigfile.nvim' }, -- better performance on big files
   {
     'whatyouhide/vim-textobj-xmlattr', -- Text objects for HTML attributes
     dependencies = 'kana/vim-textobj-user',
   },
-  { 'LunarVim/bigfile.nvim' }, -- better performance on big files
   {
     'github/copilot.vim', -- taking our jobs
     config = function()
@@ -17,9 +18,7 @@ return {
   },
   {
     'chrishrb/gx.nvim', -- go to url under cursor
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = true,
   },
   {
