@@ -30,7 +30,6 @@ opt.softtabstop = 4 -- Set the number of spaces that a <Tab> in insert mode uses
 opt.expandtab = true -- Expand <Tab> to spaces
 opt.smartindent = true -- Enable smart indentation
 opt.title = true -- Set the title of the window to the name of the current file
-opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
 opt.spell = false -- Disable spell checking
 opt.ignorecase = true -- Ignore case in search patterns
 opt.smartcase = true -- Use case-sensitive search if there is a capital letter in the pattern

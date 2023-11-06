@@ -20,7 +20,7 @@ return {
       end,
     },
     init = function()
-      -- when noice is not enabled, install notify on VeryLazy
+      vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
       local Util = require 'util'
       if not Util.has 'noice.nvim' then
         Util.on_very_lazy(function()

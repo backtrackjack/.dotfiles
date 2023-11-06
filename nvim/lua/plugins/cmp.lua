@@ -42,7 +42,6 @@ return {
       formatting = lsp_zero.cmp_format(),
       mapping = cmp.mapping.preset.insert {
         ['<c-n>'] = cmp.mapping(function(fallback)
-          -- print('tab...')
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
