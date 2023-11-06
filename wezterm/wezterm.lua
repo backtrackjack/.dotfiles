@@ -15,7 +15,7 @@ config.audible_bell = "Disabled"
 config.window_decorations = "RESIZE"
 
 config.font = wezterm.font_with_fallback { 'FantasqueSansMono Nerd Font', 'Andale Mono' }
-config.font_size = 16
+config.font_size = 18
 
 config.keys = {
     {
