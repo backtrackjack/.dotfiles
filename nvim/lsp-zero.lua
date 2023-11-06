@@ -13,11 +13,13 @@ return {
   -- LSP
   {
     'neovim/nvim-lspconfig',
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       { 'williamboman/mason-lspconfig.nvim', dependencies = 'williamboman/mason.nvim' },
       'b0o/schemastore.nvim',
       'folke/noice.nvim',
+      'VonHeikemen/lsp-zero.nvim',
     },
     config = function()
       -- This is where all the LSP shenanigans will live
@@ -35,6 +37,7 @@ return {
       }
 
       lsp_zero.on_attach(function(client, bufnr)
+        vim.api.nvim_set_current_dir(client.config.root_dir) -- detect cwd
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
         vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Line [d]iagnostic info', buffer = bufnr })
