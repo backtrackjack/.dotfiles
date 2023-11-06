@@ -7,9 +7,6 @@ return {
     { '<leader>no', '<cmd>ObsidianOpen<cr>', desc = '[o]pen in obsidian' },
     { '<leader>nn', ':ObsidianNew ', desc = '[n]ew' },
     { '<leader>nd', '<cmd>ObsidianToday<cr>', desc = '[d]aily' },
-    { '<leader>nb', '<cmd>ObsidianBacklinks<cr>', desc = '[b]acklinks' },
-    { 'gl', '<cmd>ObsidianLinkNew<cr>', desc = '[l]ink selection to new note' },
-    { 'gL', '<cmd>ObsidianLink<cr>', desc = '[L]ink selection to existing note' },
   },
   dependencies = {
     'ibhagwan/fzf-lua',
@@ -51,19 +48,30 @@ return {
   },
   config = function(_, opts)
     local obs = require 'obsidian'
-    opts.mappings = {
-      ['gf'] = {
-        action = function()
-          return obs.util.gf_passthrough()
-        end,
-        opts = {
-          noremap = false,
-          expr = true,
-          buffer = true,
-          desc = 'follow link',
-        },
-      },
-    }
     obs.setup(opts)
+
+    local function map(mode, lhs, rhs, options)
+      options = options or {}
+      options.silent = options.silent ~= false
+      options.noremap = options.noremap ~= false
+      options.expr = options.expr ~= true
+      vim.keymap.set(mode, lhs, rhs, options)
+    end
+
+    vim.api.nvim_create_autocmd('BufWinEnter', {
+      group = vim.api.nvim_create_augroup('Obsidian', { clear = true }),
+      pattern = '*.md',
+      callback = function()
+        map('n', 'gf', function()
+          if obs.util.cursor_on_markdown_link() then
+            return '<cmd>ObsidianFollowLink<cr>'
+          else
+            return 'gf'
+          end
+        end, { desc = '[f]ollow link' })
+
+        map('n', '<leader>nb', '<cmd>ObsidianBacklinks<cr>', { desc = '[b]acklinks' })
+      end,
+    })
   end,
 }
