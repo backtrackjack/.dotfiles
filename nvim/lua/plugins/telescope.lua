@@ -10,6 +10,7 @@ return {
         build = 'make',
       },
       'nvim-tree/nvim-web-devicons',
+      'airblade/vim-rooter',
     },
     cmd = { 'Telescope' },
     keys = {
@@ -17,7 +18,8 @@ return {
         '<leader>/',
         function()
           require('telescope.builtin').live_grep {
-            additional_args = { '--fixed-strings' }
+            additional_args = { '--fixed-strings' },
+            cwd = vim.fn.FindRootDirectory(),
           }
         end,
         desc = 'Grep everything',
@@ -25,14 +27,23 @@ return {
       {
         '<leader>ff',
         function()
-          require('telescope.builtin').git_files { no_ignore = true, prompt_title = 'All Files' }
+          require('telescope.builtin').find_files {
+            cwd = vim.fn.FindRootDirectory(),
+            no_ignore = true,
+          }
         end,
         desc = '[f]ind files',
       },
       {
         '<leader>fF',
-        ":lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true })<cr>",
-        desc = '[F]ind files more harder',
+        function()
+          require('telescope.builtin').find_files {
+            cwd = vim.fn.FindRootDirectory(),
+            hidden = true,
+            no_ignore = true,
+          }
+        end,
+        desc = '[F]ind files more harder like',
       },
       {
         '<leader>ba',
@@ -66,6 +77,13 @@ return {
         desc = 'all of the [D]iagnostics',
       },
       {
+        '<leader>ss',
+        function()
+          require('telescope.builtin').lsp_document_symbols()
+        end,
+        desc = '[s]ymbols',
+      },
+      {
         '<leader>sh',
         '<cmd>Telescope help_tags<cr>',
         desc = '[h]elp pages',
@@ -84,6 +102,13 @@ return {
         '<leader>sM',
         '<cmd>Telescope man_pages<cr>',
         desc = '[M]an pages',
+      },
+      {
+        '<leader>snh',
+        function()
+          require('telescope').extensions.notify.notify()
+        end,
+        desc = '[h]istory',
       },
       -- ui
       {

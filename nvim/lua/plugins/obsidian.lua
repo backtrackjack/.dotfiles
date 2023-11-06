@@ -9,7 +9,6 @@ return {
     { '<leader>nd', '<cmd>ObsidianToday<cr>', desc = '[d]aily' },
   },
   dependencies = {
-    'ibhagwan/fzf-lua',
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
   },
@@ -38,7 +37,6 @@ return {
       end
       return tostring(os.time()) .. '-' .. suffix
     end,
-    finder = 'fzf-lua',
     log_level = vim.log.levels.ERROR,
     follow_url_func = function(url)
       -- Open url with system default browser or url handler

@@ -16,6 +16,7 @@ return {
       },
     },
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'RRethy/nvim-treesitter-textsubjects',
   },
   main = { 'nvim-treesitter.configs' },
   opts = {
@@ -71,13 +72,10 @@ return {
     rainbow = {
       enable = true,
     },
-    incremental_selection = {
+    textsubjects = {
       enable = true,
       keymaps = {
-        init_selection = '<cr>',
-        node_incremental = '<cr>',
-        scope_incremental = false,
-        node_decremental = '<bs>',
+        ['<cr>'] = 'textsubjects-smart',
       },
     },
     textobjects = {
