@@ -15,21 +15,32 @@ return {
     cmd = { 'Telescope' },
     keys = {
       {
+        '<leader>?',
+        function()
+          require('telescope.builtin').live_grep {
+            additional_args = { '--fixed-strings' },
+            cwd = vim.fn.FindRootDirectory(),
+            prompt_title = 'Grep the whole dang project',
+          }
+        end,
+        desc = 'Grep the whole dang project',
+      },
+      {
         '<leader>/',
         function()
           require('telescope.builtin').live_grep {
             additional_args = { '--fixed-strings' },
             cwd = vim.fn.FindRootDirectory(),
+            prompt_title = 'Grep from just here',
           }
         end,
-        desc = 'Grep everything',
+        desc = 'Grep from just here',
       },
       {
         '<leader>ff',
         function()
-          require('telescope.builtin').find_files {
-            cwd = vim.fn.FindRootDirectory(),
-            no_ignore = true,
+          require('telescope.builtin').git_files {
+            show_untracked = true,
           }
         end,
         desc = '[f]ind files',
@@ -41,9 +52,10 @@ return {
             cwd = vim.fn.FindRootDirectory(),
             hidden = true,
             no_ignore = true,
+            prompt_title = 'REALLY [F]IND files',
           }
         end,
-        desc = '[F]ind files more harder like',
+        desc = 'REALLY [F]IND files',
       },
       {
         '<leader>ba',
