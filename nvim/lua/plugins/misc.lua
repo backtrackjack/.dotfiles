@@ -2,6 +2,7 @@ return {
   { 'wakatime/vim-wakatime' }, -- time tracking
   { 'tpope/vim-sleuth' }, -- auto detect indentation
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
+  { 'monaqa/dial.nvim' }, -- increment/decrement numbers}
   {
     'whatyouhide/vim-textobj-xmlattr', -- Text objects for HTML attributes
     dependencies = 'kana/vim-textobj-user',
