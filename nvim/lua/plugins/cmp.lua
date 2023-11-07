@@ -16,11 +16,14 @@ return {
     local lsp_zero = require 'lsp-zero'
     lsp_zero.extend_cmp()
 
-    require('luasnip.loaders.from_vscode').lazy_load()
+    require('luasnip.loaders.from_vscode').lazy_load() -- friendly snippets
+    require('luasnip.loaders.from_snipmate').lazy_load() -- nvim/snippets/{filetype}.snippets
 
     -- And you can configure cmp even more, if you want to.
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+
+    luasnip.filetype_extend("blade", { "html" }) -- use html snippets in blade files
 
     local has_words_before = function()
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))

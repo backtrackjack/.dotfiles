@@ -1,0 +1,11 @@
+snippet hasmany "has many"
+		public function ${1}(): HasMany
+		{
+			return \$this->hasMany(${2});
+		}
+
+snippet belongsto "belongs to"
+		public function ${1}(): BelongsTo
+		{
+			return \$this->belongsTo(${2});
+		}
