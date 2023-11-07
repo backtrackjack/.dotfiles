@@ -116,11 +116,11 @@ return {
         desc = '[M]an pages',
       },
       {
-        '<leader>snh',
+        '<leader>sm',
         function()
           require('telescope').extensions.notify.notify()
         end,
-        desc = '[h]istory',
+        desc = '[m]essages',
       },
       -- ui
       {
@@ -156,23 +156,11 @@ return {
           file_ignore_patterns = { '.git/' },
         },
         pickers = {
-          find_files = {
-            hidden = true,
-          },
           buffers = {
             previewer = false,
             layout_config = {
               width = 80,
             },
-          },
-          oldfiles = {
-            prompt_title = 'History',
-          },
-          lsp_references = {
-            previewer = false,
-          },
-          lsp_definitions = {
-            previewer = false,
           },
           lsp_document_symbols = {
             symbol_width = 55,
