@@ -36,7 +36,6 @@ return {
       button.opts.hl_shortcut = 'Statement'
     end
 
-    dashboard.section.header.opts.hl = 'String'
     dashboard.section.footer.opts.hl = 'Type'
 
     dashboard.opts.layout[1].val = 10

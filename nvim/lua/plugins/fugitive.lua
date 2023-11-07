@@ -36,6 +36,8 @@ return {
 
         -- track branch
         map('n', '<leader>T', ':Git push -u origin ', { desc = '[T]rack branch' })
+
+        map('n', 'cc', ':<C-U>silent Git commit<cr>')
       end,
     })
   end,
