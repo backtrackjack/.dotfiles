@@ -74,9 +74,11 @@ map('n', '<leader>ui', vim.show_pos, { desc = 'Inspect Pos' })
 map('n', '<leader>us', function()
   require('util').toggle 'spell'
 end, { desc = 'Toggle Spelling' })
+
 map('n', '<leader>uw', function()
   require('util').toggle 'wrap'
 end, { desc = 'Toggle Word Wrap' })
+
 map('n', '<leader>ul', function()
   require('util').toggle('relativenumber', true)
   require('util').toggle 'number'
@@ -98,4 +100,4 @@ end, { desc = 'Local [t]odo' })
 
 map('n', '<leader>nT', function()
   vim.cmd 'e ~/.dotfiles/notes/vaults/main/todo.md'
-end, { desc = 'Global [T]odo'})
+end, { desc = 'Global [T]odo' })

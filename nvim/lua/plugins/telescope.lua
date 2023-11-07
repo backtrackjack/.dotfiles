@@ -10,12 +10,6 @@ return {
         build = 'make',
       },
       'nvim-tree/nvim-web-devicons',
-      {
-        'airblade/vim-rooter',
-        init = function()
-          vim.g.rooter_silent_chdir = 1
-        end,
-      },
     },
     cmd = { 'Telescope' },
     keys = {
@@ -24,7 +18,7 @@ return {
         function()
           require('telescope.builtin').live_grep {
             additional_args = { '--fixed-strings' },
-            cwd = vim.fn.FindRootDirectory(),
+            cwd = require('util').find_git_root(),
             prompt_title = 'Grep the whole dang project',
           }
         end,
@@ -35,7 +29,6 @@ return {
         function()
           require('telescope.builtin').live_grep {
             additional_args = { '--fixed-strings' },
-            cwd = vim.fn.FindRootDirectory(),
             prompt_title = 'Grep from just here',
           }
         end,
@@ -54,7 +47,7 @@ return {
         '<leader>fF',
         function()
           require('telescope.builtin').find_files {
-            cwd = vim.fn.FindRootDirectory(),
+            cwd = require('util').find_git_root(),
             hidden = true,
             no_ignore = true,
             prompt_title = 'REALLY [F]IND files',
