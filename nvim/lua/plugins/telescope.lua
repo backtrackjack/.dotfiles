@@ -10,7 +10,12 @@ return {
         build = 'make',
       },
       'nvim-tree/nvim-web-devicons',
-      'airblade/vim-rooter',
+      {
+        'airblade/vim-rooter',
+        init = function()
+          vim.g.rooter_silent_chdir = 1
+        end,
+      },
     },
     cmd = { 'Telescope' },
     keys = {
