@@ -18,6 +18,7 @@ return {
       { 'williamboman/mason-lspconfig.nvim', dependencies = 'williamboman/mason.nvim' },
       'b0o/schemastore.nvim',
       'folke/noice.nvim',
+      'nvim-telescope/telescope.nvim',
     },
     config = function()
       -- This is where all the LSP shenanigans will live
@@ -38,10 +39,10 @@ return {
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
         vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Line [d]iagnostic info', buffer = bufnr })
-        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = 'Go to [d]efinition', buffer = bufnr })
+        vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Go to [d]efinition', buffer = bufnr })
         vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = '[a]ction', buffer = bufnr })
-        vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { desc = 'Go to [i]mplementation', buffer = bufnr })
-        vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = 'Go to [r]eference(s)', buffer = bufnr })
+        vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, { desc = 'Go to [i]mplementation', buffer = bufnr })
+        vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'Go to [r]eference(s)', buffer = bufnr })
         vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { buffer = bufnr })
         vim.keymap.set('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = '[r]ename', buffer = bufnr })
       end)
