@@ -120,6 +120,13 @@ return {
         end,
         desc = '[m]essages',
       },
+      {
+        '<leader>sr',
+        function()
+          require('telescope.builtin').resume()
+        end,
+        desc = '[r]esume',
+      },
       -- ui
       {
         '<leader>uC',
