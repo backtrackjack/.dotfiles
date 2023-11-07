@@ -44,7 +44,7 @@
   "onedark.nvim": { "branch": "master", "commit": "b9acd92ded2ba155867ca5af9d618e933d96e3b0" },
   "phpactor": { "branch": "master", "commit": "2fa7ab2bdd411356fecf05dc228890681b4dc93c" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
-  "schemastore.nvim": { "branch": "main", "commit": "686687585c040529f7efa68aa433282068c9d78b" },
+  "schemastore.nvim": { "branch": "main", "commit": "d7c3d872fc19741148a5e324197f086423680277" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
   "todo-comments.nvim": { "branch": "main", "commit": "4a6737a8d70fe1ac55c64dfa47fcb189ca431872" },
