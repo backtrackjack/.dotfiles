@@ -20,6 +20,8 @@ return {
           return
         end
 
+        vim.cmd[[set cmdheight=1]] -- to avoid extra key press on some actions see: https://www.reddit.com/r/neovim/comments/tturkx/can_i_automatically_hide_press_enter_or_type/
+
         local function map(mode, lhs, rhs, opts)
           opts = opts or {}
           opts.buffer = vim.api.nvim_get_current_buf()
@@ -36,8 +38,6 @@ return {
 
         -- track branch
         map('n', '<leader>T', ':Git push -u origin ', { desc = '[T]rack branch' })
-
-        map('n', 'cc', ':<C-U>Git commit<cr>', { silent = true })
       end,
     })
   end,
