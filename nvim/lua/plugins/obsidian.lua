@@ -1,7 +1,6 @@
 return {
   'epwalsh/obsidian.nvim',
-  version = '1.14.*',
-  lazy = false,
+  cmd = { "ObsidianQuickSwitch"}, -- used in alpha dashboard
   keys = {
     { '<leader>nf', '<cmd>ObsidianQuickSwitch<cr>', desc = '[f]ind note' },
     { '<leader>ns', '<cmd>ObsidianSearch<cr>', desc = '[s]earch' },
