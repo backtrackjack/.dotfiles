@@ -21,7 +21,9 @@ return {
           return
         end
 
-        vim.cmd [[set cmdheight=1]] -- to avoid extra key press on some actions see: https://www.reddit.com/r/neovim/comments/tturkx/can_i_automatically_hide_press_enter_or_type/
+        if not require('util').has 'noice' then
+          vim.cmd [[set cmdheight=1]] -- to avoid extra key press on some actions see: https://www.reddit.com/r/neovim/comments/tturkx/can_i_automatically_hide_press_enter_or_type/
+        end
 
         local function map(mode, lhs, rhs, opts)
           opts = opts or {}
@@ -42,15 +44,17 @@ return {
       end,
     })
 
-    vim.api.nvim_create_autocmd('BufLeave', {
-      group = augroup,
-      pattern = '*',
-      callback = function()
-        if vim.bo.ft ~= 'fugitive' then
-          return
-        end
-        vim.cmd [[set cmdheight=0]] -- revert cmdheight on leave
-      end,
-    })
+    if not require('util').has 'noice' then
+      vim.api.nvim_create_autocmd('BufLeave', {
+        group = augroup,
+        pattern = '*',
+        callback = function()
+          if vim.bo.ft ~= 'fugitive' then
+            return
+          end
+          vim.cmd [[set cmdheight=0]] -- revert cmdheight on leave
+        end,
+      })
+    end
   end,
 }
