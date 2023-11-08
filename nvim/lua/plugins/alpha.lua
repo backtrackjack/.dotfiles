@@ -33,7 +33,7 @@ return {
 
     -- lsp highlights prefixed with `@` don't have a background color
     local fg_only_highlights = vim.tbl_filter(function(v)
-      return string.find(v, '@') ~= nil or string.find(v, '@text.uri') ~= nil or string.find(v, '@text.underline') ~= nil
+      return string.find(v, '@') ~= nil or string.find(v, '@text\\.uri') ~= nil or string.find(v, '@text\\.underline') ~= nil
     end, vim.fn.getcompletion('', 'highlight'))
 
     local header_hl = fg_only_highlights[math.random(#fg_only_highlights)]
