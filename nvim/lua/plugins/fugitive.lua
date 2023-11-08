@@ -12,15 +12,16 @@ return {
     { mode = { 'n' }, '<leader>gL', '<cmd>vertical Git reflog<cr>', desc = 'ref[L]og' },
   },
   config = function()
-    vim.api.nvim_create_autocmd('BufWinEnter', {
-      group = vim.api.nvim_create_augroup('Fugitive', { clear = true }),
+    local augroup = vim.api.nvim_create_augroup('Fugitive', { clear = true })
+    vim.api.nvim_create_autocmd('BufEnter', {
+      group = augroup,
       pattern = '*',
       callback = function()
         if vim.bo.ft ~= 'fugitive' then
           return
         end
 
-        vim.cmd[[set cmdheight=1]] -- to avoid extra key press on some actions see: https://www.reddit.com/r/neovim/comments/tturkx/can_i_automatically_hide_press_enter_or_type/
+        vim.cmd [[set cmdheight=1]] -- to avoid extra key press on some actions see: https://www.reddit.com/r/neovim/comments/tturkx/can_i_automatically_hide_press_enter_or_type/
 
         local function map(mode, lhs, rhs, opts)
           opts = opts or {}
@@ -38,6 +39,17 @@ return {
 
         -- track branch
         map('n', '<leader>T', ':Git push -u origin ', { desc = '[T]rack branch' })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('BufLeave', {
+      group = augroup,
+      pattern = '*',
+      callback = function()
+        if vim.bo.ft ~= 'fugitive' then
+          return
+        end
+        vim.cmd [[set cmdheight=0]] -- revert cmdheight on leave
       end,
     })
   end,
