@@ -11,6 +11,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
+    'nvim-telescope/telescope.nvim',
   },
   opts = {
     completion = {
@@ -66,7 +67,7 @@ return {
           else
             return 'gf'
           end
-        end, { desc = '[f]ollow link' })
+        end, { desc = '[f]ollow link / go to [f]ile' })
 
         map('n', '<leader>nb', '<cmd>ObsidianBacklinks<cr>', { desc = '[b]acklinks' })
       end,
