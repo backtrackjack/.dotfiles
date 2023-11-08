@@ -31,12 +31,20 @@ return {
       dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
     }
 
+    -- lsp highlights prefixed with `@` don't have a background color
+    local fg_only_highlights = vim.tbl_filter(function(v)
+      return string.find(v, '@') ~= nil or string.find(v, '@text.uri') ~= nil or string.find(v, '@text.underline') ~= nil
+    end, vim.fn.getcompletion('', 'highlight'))
+
+    local header_hl = fg_only_highlights[math.random(#fg_only_highlights)]
+    local button_hl = fg_only_highlights[math.random(#fg_only_highlights)]
+
     for _, button in ipairs(dashboard.section.buttons.val) do
-      button.opts.hl = 'Label'
-      button.opts.hl_shortcut = 'Statement'
+      button.opts.hl = button_hl
+      button.opts.hl_shortcut = button_hl
     end
 
-    dashboard.section.footer.opts.hl = 'Type'
+    dashboard.section.header.opts.hl = header_hl
 
     dashboard.opts.layout[1].val = 10
     dashboard.opts.layout[3].val = 3
