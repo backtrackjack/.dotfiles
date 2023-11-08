@@ -6,7 +6,7 @@ return {
     treesitter = { suffix = '' },
     jump = { suffix = '' },
     comment = { suffix = '' },
+    quickfix = { suffix = '' }, -- overridden in trouble.lua
     -- customize
-    quickfix = { suffix = 'c' },
   },
 }

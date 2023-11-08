@@ -24,7 +24,7 @@ return {
       desc = '[Q]uickfix List (Trouble)'
     },
     {
-      '[q',
+      '[c',
       function()
         if require('trouble').is_open() then
           require('trouble').previous { skip_groups = true, jump = true }
@@ -38,7 +38,7 @@ return {
       desc = 'Previous trouble/[q]uickfix item',
     },
     {
-      ']q',
+      ']c',
       function()
         if require('trouble').is_open() then
           require('trouble').next { skip_groups = true, jump = true }
