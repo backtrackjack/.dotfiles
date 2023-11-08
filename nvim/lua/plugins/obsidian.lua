@@ -1,5 +1,6 @@
 return {
   'epwalsh/obsidian.nvim',
+  version = '1.14.*',
   lazy = false,
   keys = {
     { '<leader>nf', '<cmd>ObsidianQuickSwitch<cr>', desc = '[f]ind note' },
