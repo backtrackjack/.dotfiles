@@ -24,6 +24,7 @@ return {
           opts = opts or {}
           opts.buffer = vim.api.nvim_get_current_buf()
           opts.remap = false
+          opts.silent = opts.silent ~= false
           vim.keymap.set(mode, lhs, rhs, opts)
         end
 
@@ -36,7 +37,7 @@ return {
         -- track branch
         map('n', '<leader>T', ':Git push -u origin ', { desc = '[T]rack branch' })
 
-        map('n', 'cc', ':<C-U>silent Git commit<cr>', { silent = true })
+        map('n', 'cc', ':<C-U>Git commit<cr>', { silent = true })
       end,
     })
   end,
