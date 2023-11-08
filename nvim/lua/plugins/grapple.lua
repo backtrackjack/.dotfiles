@@ -3,7 +3,7 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   keys = {
     { '<c-e>', '<cmd>GrapplePopup tags<cr>' },
-    { '<leader>a', '<cmd>GrappleTag<cr>', desc = '[a]dd to grapple' },
+    { '<leader>+', '<cmd>GrappleTag<cr>', desc = '[+] grapple list' },
     { 'L', '<cmd>GrappleCycle forward<cr>', desc = 'Cycle grapple forward' },
     { 'H', '<cmd>GrappleCycle backward<cr>', desc = 'Cycle grapple backward' },
   },
