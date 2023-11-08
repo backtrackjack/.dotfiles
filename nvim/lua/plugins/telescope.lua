@@ -14,7 +14,7 @@ return {
     cmd = { 'Telescope' },
     keys = {
       {
-        '<leader>?',
+        '<leader>sG',
         function()
           require('telescope.builtin').live_grep {
             additional_args = { '--fixed-strings' },
@@ -22,17 +22,17 @@ return {
             prompt_title = 'Grep the whole dang project',
           }
         end,
-        desc = 'Grep the whole dang project',
+        desc = '[G]rep the whole dang project',
       },
       {
-        '<leader>/',
+        '<leader>sg',
         function()
           require('telescope.builtin').live_grep {
             additional_args = { '--fixed-strings' },
             prompt_title = 'Grep from just here',
           }
         end,
-        desc = 'Grep from just here',
+        desc = '[g]rep from just here',
       },
       {
         '<leader>ff',
