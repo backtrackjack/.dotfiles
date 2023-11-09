@@ -111,9 +111,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+	export EDITOR='vim'
 else
-  export EDITOR='nvim'
+	export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -126,20 +126,24 @@ fi
 #
 # Example aliases
 
-alias zshconfig="nvim ~/.zshrc"
+alias zshconfig="nvim ~/.dotfiles/zsh/zshrc"
 alias ohmyzsh="cd ~/.oh-my-zsh"
-alias vimconfig="nvim ~/.config/nvim"
 alias hxconfig="hx ~/.config/helix/config.toml"
 alias vi="nvim"
 alias refrezsh="source ~/.zshrc"
 alias myip="curl http://ipecho.net/plain; echo"
 alias gitpretty="git log --all --decorate --oneline --graph"
-alias python="python3"
-alias rt="rusty-tags vi"
-alias espconfig="nvim '/Users/jsellars/Library/Application Support/espanso/match/base.yml'"
-alias kraken="open -a 'GitKraken' --args -p $(pwd)"
 alias oldbrew="arm /usr/local/bin/brew"
 alias ls="lsd"
+alias a="artisan"
+
+nah() {
+	git reset --hard
+	git clean -df
+	if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then
+		git rebase --abort
+	fi
+}
 
 # zsh-autosuggest config
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
@@ -148,7 +152,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 # ARTISAN_OPEN_ON_MAKE_EDITOR=$EDITOR
 
 # brew config
-if [[ `uname` != "Darwin" ]]; then
+if [[ $(uname) != "Darwin" ]]; then
 	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
@@ -170,3 +174,12 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/81/"
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/82/"
+
+# Herd injected PHP binary.
+export PATH="/Users/jsellars/Library/Application Support/Herd/bin/":$PATH

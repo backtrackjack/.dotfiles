@@ -31,6 +31,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         sh = { 'shfmt' },
+        zsh = { 'shfmt' },
         php = { 'pint' },
         blade = { 'blade-formatter' },
         markdown = { 'prettierd' },
