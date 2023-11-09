@@ -10,6 +10,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- use zshrc
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = augroup 'use_zshrc',
+  callback = function()
+    vim.cmd [[ let &shell='/bin/zsh -i' ]]
+  end,
+})
+
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = augroup 'last_loc',
