@@ -31,8 +31,7 @@ return {
     config = function(_, opts)
       require('notify').setup(opts)
       -- show tip on startup
-      local job = require 'plenary.job'
-      job
+      require('plenary.job')
         :new({
           command = 'curl',
           args = { 'https://vtip.43z.one' },

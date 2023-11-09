@@ -47,10 +47,9 @@ return {
         '<leader>fF',
         function()
           require('telescope.builtin').find_files {
-            cwd = require('util').find_git_root(),
             hidden = true,
             no_ignore = true,
-            prompt_title = 'REALLY [F]IND files',
+            prompt_title = '[F]ind files (current dir)',
           }
         end,
         desc = 'REALLY [F]IND files',
