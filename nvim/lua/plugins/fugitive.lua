@@ -34,7 +34,7 @@ return {
         end
 
         -- pull
-        map('n', '<leader>P', ':Git! push', { desc = '[P]ush' })
+        map('n', '<leader>P', ':Git push', { desc = '[P]ush' })
 
         -- rebase always
         map('n', '<leader>p', ':Git pull --rebase<cr>', { desc = '[p]ull' })
