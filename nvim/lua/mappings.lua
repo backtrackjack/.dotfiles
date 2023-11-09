@@ -90,7 +90,7 @@ map('n', '<leader>uc', function()
 end, { desc = 'Toggle Conceal Level' })
 
 map('n', '<leader>nt', function()
-  local todo = vim.fn.getcwd() .. '/todo.md'
+  local todo = require('util').find_git_root() .. '/todo.md' -- default project todo if exists
   if vim.fn.filereadable(todo) == 1 then
     vim.cmd('e ' .. todo)
   else
