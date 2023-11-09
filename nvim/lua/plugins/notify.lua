@@ -29,6 +29,7 @@ return {
       end
     end,
     config = function(_, opts)
+      require('notify').setup(opts)
       -- show tip on startup
       local job = require 'plenary.job'
       job
