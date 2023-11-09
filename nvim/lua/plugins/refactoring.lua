@@ -5,6 +5,15 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'nvim-telescope/telescope.nvim',
   },
+  opts = {
+    prompt_func_return_type = {
+      php = true,
+    },
+    prompt_func_param_type = {
+      php = true,
+    }
+  },
+  config = true,
   cmd = { 'Refactor' },
   keys = {
     {
@@ -14,5 +23,4 @@ return {
       end,
     },
   },
-  config = true,
 }
