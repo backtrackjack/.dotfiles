@@ -28,7 +28,7 @@ return {
         end)
       end
     end,
-    config = function()
+    config = function(_, opts)
       -- show tip on startup
       local job = require 'plenary.job'
       job
