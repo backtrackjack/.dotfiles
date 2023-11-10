@@ -4,23 +4,30 @@ return {
     'nvim-telescope/telescope.nvim',
     version = '*',
     dependencies = {
-      { 'nvim-lua/plenary.nvim' },
+      'nvim-lua/plenary.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end
       },
       'nvim-tree/nvim-web-devicons',
     },
     cmd = { 'Telescope' },
     keys = {
       {
+        -- FIXME: not working
         '<leader>sG',
         function()
-          require('telescope.builtin').live_grep {
-            additional_args = { '--fixed-strings' },
-            cwd = require('util').find_git_root(),
-            prompt_title = 'Grep the whole dang project',
-          }
+          local git_root = require('util').find_git_root()
+          if git_root then
+            require('telescope.builtin').live_grep {
+              additional_args = { '--fixed-strings' },
+              search_dirs = { git_root },
+              prompt_title = 'Grep the whole dang project',
+            }
+          end
         end,
         desc = '[G]rep the whole dang project',
       },
