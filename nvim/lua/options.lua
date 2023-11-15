@@ -53,3 +53,4 @@ opt.undodir = os.getenv 'HOME' .. '/.vim/undodir' -- Set the directory for undo 
 opt.undofile = true -- Enable persistent undo
 opt.wildmode = 'longest:full,full' -- Set wildmode to complete the longest common match and allow tabbing the results to fully complete them
 opt.wrap = false -- Disable line wrapping
+opt.virtualedit = 'block' -- Enable blockwise virtual editing

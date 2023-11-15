@@ -20,13 +20,14 @@ return {
 
     dashboard.section.buttons.val = {
       dashboard.button('f', ' ' .. ' Find file', ':Telescope find_files <CR>'),
-      dashboard.button('n', '󱨋 ' .. ' Notes', ':ObsidianQuickSwitch <CR>'),
+      dashboard.button('n', '󱨋 ' .. ' Notes', ':e ~/.dotfiles/notes/vaults/main/todo.md <CR>'),
       dashboard.button('c', ' ' .. ' Config', ':e $MYVIMRC <CR>'),
       dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
     }
 
     -- lsp highlights prefixed with `@` don't have a background color
-    local _fg_only_highlights = vim.tbl_filter(function(v)
+    ---@diagnostic disable-next-line: unused-local
+    local fg_only_highlights = vim.tbl_filter(function(v)
       return string.find(v, '@') ~= nil and string.find(v, '@text.uri') == nil and string.find(v, '@text.underline') == nil
     end, vim.fn.getcompletion('', 'highlight'))
 

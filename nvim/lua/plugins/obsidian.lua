@@ -1,6 +1,10 @@
 return {
   'epwalsh/obsidian.nvim',
-  cmd = { "ObsidianQuickSwitch"}, -- used in alpha dashboard
+  cmd = { 'ObsidianToday' }, -- used in alpha dashboard
+  event = {
+    'BufReadPre ~/.dotfiles/notes/vaults/main/**.md',
+    'BufNewFile ~/.dotfiles/notes/vaults/main/**.md',
+  },
   keys = {
     { '<leader>nf', '<cmd>ObsidianQuickSwitch<cr>', desc = '[f]ind note' },
     { '<leader>ns', '<cmd>ObsidianSearch<cr>', desc = '[s]earch' },
@@ -44,33 +48,52 @@ return {
       vim.fn.jobstart { 'open', url } -- macos
     end,
     open_app_foreground = true,
+    mappings = {
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+      ['gf'] = {
+        action = function()
+          return require('obsidian').util.gf_passthrough()
+        end,
+        opts = { noremap = false, expr = true, buffer = true, desc = '[f]ollow link / go to [f]ile' },
+      },
+      -- Toggle check-boxes.
+      ['<leader>ch'] = {
+        action = function()
+          return require('obsidian').util.toggle_checkbox()
+        end,
+        opts = { buffer = true, desc = 'toggle [ch]eckbox' },
+      },
+    },
   },
-  config = function(_, opts)
-    local obs = require 'obsidian'
-    obs.setup(opts)
+  -- config = function(_, opts)
+  --   local obs = require 'obsidian'
+  --   obs.setup(opts)
 
-    local function map(mode, lhs, rhs, options)
-      options = options or {}
-      options.silent = options.silent ~= false
-      options.noremap = options.noremap ~= false
-      options.expr = options.expr ~= true
-      vim.keymap.set(mode, lhs, rhs, options)
-    end
-
-    vim.api.nvim_create_autocmd('BufWinEnter', {
-      group = vim.api.nvim_create_augroup('Obsidian', { clear = true }),
-      pattern = '*.md',
-      callback = function()
-        map('n', 'gf', function()
-          if obs.util.cursor_on_markdown_link() then
-            return '<cmd>ObsidianFollowLink<cr>'
-          else
-            return 'gf'
-          end
-        end, { desc = '[f]ollow link / go to [f]ile' })
-
-        map('n', '<leader>nb', '<cmd>ObsidianBacklinks<cr>', { desc = '[b]acklinks' })
-      end,
-    })
-  end,
+  -- local function map(mode, lhs, rhs, options)
+  --   options = options or {}
+  --   options.silent = options.silent ~= false
+  --   options.noremap = options.noremap ~= false
+  --   options.expr = options.expr ~= true
+  --   vim.keymap.set(mode, lhs, rhs, options)
+  -- end
+  --
+  -- vim.api.nvim_create_autocmd('BufWinEnter', {
+  --   group = vim.api.nvim_create_augroup('Obsidian', { clear = true }),
+  --   pattern = '*.md',
+  --   callback = function()
+  --     map('n', 'gf', function()
+  --       if obs.util.cursor_on_markdown_link() then
+  --         return '<cmd>ObsidianFollowLink<cr>'
+  --       else
+  --         return 'gf'
+  --       end
+  --     end, { desc = '[f]ollow link / go to [f]ile' })
+  --
+  --     map('n', '<leader>nb', '<cmd>ObsidianBacklinks<cr>', { desc = '[b]acklinks' })
+  --     map('n', '<leader>ch', function()
+  --       require('obsidian').util.toggle_checkbox()
+  --     end, { desc = 'toggle [c]heckbox' })
+  --   end,
+  -- })
+  -- end,
 }
