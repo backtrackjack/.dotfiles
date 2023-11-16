@@ -1,6 +1,6 @@
 return {
   'epwalsh/obsidian.nvim',
-  version = '*',
+  -- version = '*',
   cmd = { 'ObsidianQuickSwitch' }, -- used in alpha dashboard
   event = {
     'BufReadPre ' .. vim.fn.expand '~' .. '/.dotfiles/notes/vaults/main/**.md',

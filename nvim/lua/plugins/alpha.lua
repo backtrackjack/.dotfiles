@@ -20,7 +20,7 @@ return {
 
     dashboard.section.buttons.val = {
       dashboard.button('f', ' ' .. ' Find file', ':Telescope find_files <CR>'),
-      dashboard.button('n', '󱨋 ' .. ' Notes', ':e ~/.dotfiles/notes/vaults/main/todo.md<CR>'),
+      dashboard.button('n', '󱨋 ' .. ' Notes', ':ObsidianQuickSwitch <CR>'),
       dashboard.button('c', ' ' .. ' Config', ':e $MYVIMRC <CR>'),
       dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
     }
