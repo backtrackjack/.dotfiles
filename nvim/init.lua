@@ -7,6 +7,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 require 'options'
+require 'mappings'
+require 'autocommands'
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -49,6 +51,3 @@ require('lazy').setup {
     },
   },
 }
-
-require 'mappings'
-require 'autocommands'
