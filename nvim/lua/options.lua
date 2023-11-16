@@ -54,3 +54,4 @@ opt.undofile = true -- Enable persistent undo
 opt.wildmode = 'longest:full,full' -- Set wildmode to complete the longest common match and allow tabbing the results to fully complete them
 opt.wrap = false -- Disable line wrapping
 opt.virtualedit = 'block' -- Enable blockwise virtual editing
+opt.termguicolors = true -- Enable 24-bit RGB color in the TUI

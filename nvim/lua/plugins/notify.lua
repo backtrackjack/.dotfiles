@@ -20,7 +20,6 @@ return {
       end,
     },
     init = function()
-      vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
       local Util = require 'util'
       if not Util.has 'noice.nvim' then
         Util.on_very_lazy(function()
