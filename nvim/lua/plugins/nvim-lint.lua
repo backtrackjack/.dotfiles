@@ -7,7 +7,6 @@ return {
     events = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
     linters_by_ft = {
       markdown = { 'vale', 'write_good' },
-      gitcommit = { 'commitlint' },
       json = { 'jsonlint' },
       yaml = { 'yamllint' },
       ['*'] = { 'woke' },

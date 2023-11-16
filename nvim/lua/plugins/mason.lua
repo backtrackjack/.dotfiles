@@ -6,7 +6,6 @@ return {
   opts = {
     ensure_installed = {
       'blade-formatter',
-      'commitlint',
       'html-lsp',
       'intelephense',
       'jq',
