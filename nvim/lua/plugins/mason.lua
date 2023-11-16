@@ -6,10 +6,12 @@ return {
   opts = {
     ensure_installed = {
       'blade-formatter',
+      'commitlint',
       'html-lsp',
       'intelephense',
       'jq',
       'json-lsp',
+      'jsonlint',
       'lua-language-server',
       'phpactor',
       'pint',
@@ -21,7 +23,10 @@ return {
       'tailwindcss-language-server',
       'typescript-language-server',
       'vue-language-server',
+      'woke',
+      'write-good',
       'xmlformatter',
+      'yamllint',
     },
   },
   config = function(_, opts)
