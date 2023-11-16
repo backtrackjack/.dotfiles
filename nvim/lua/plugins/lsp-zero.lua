@@ -38,7 +38,6 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-        vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Line [d]iagnostic info', buffer = bufnr })
         vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Go to [d]efinition', buffer = bufnr })
         vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = '[a]ction', buffer = bufnr })
         vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, { desc = 'Go to [i]mplementation', buffer = bufnr })

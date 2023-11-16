@@ -101,3 +101,10 @@ end, { desc = 'Local [t]odo' })
 map('n', '<leader>nT', function()
   vim.cmd 'e ~/.dotfiles/notes/vaults/main/todo.md'
 end, { desc = 'Global [T]odo' })
+
+map(
+  'n',
+  '<Leader>cd',
+  '<cmd>lua vim.diagnostic.open_float()<CR>', -- diagnostic not always lsp related
+  { desc = 'Line [d]iagnostic info' }
+)

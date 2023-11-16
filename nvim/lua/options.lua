@@ -55,4 +55,3 @@ opt.wildmode = 'longest:full,full' -- Set wildmode to complete the longest commo
 opt.wrap = false -- Disable line wrapping
 opt.virtualedit = 'block' -- Enable blockwise virtual editing
 opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
-
