@@ -21,6 +21,7 @@ return {
       'stylua',
       'tailwindcss-language-server',
       'typescript-language-server',
+      'vale',
       'vue-language-server',
       'woke',
       'write-good',
