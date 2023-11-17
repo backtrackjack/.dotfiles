@@ -1,3 +1,4 @@
 .DS_Store
 lazygit/state.yml
 nvim/lazy-lock.json
+styles/
