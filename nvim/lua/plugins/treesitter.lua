@@ -16,6 +16,7 @@ return {
       },
     },
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'RRethy/nvim-treesitter-textsubjects',
   },
   main = { 'nvim-treesitter.configs' },
   opts = {
@@ -70,6 +71,12 @@ return {
     },
     rainbow = {
       enable = true,
+    },
+    textsubjects = {
+      enable = true,
+      keymaps = {
+        ['<cr>'] = 'textsubjects-smart',
+      },
     },
     textobjects = {
       select = {
