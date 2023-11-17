@@ -89,6 +89,10 @@ map('n', '<leader>uc', function()
   require('util').toggle('conceallevel', false, { 0, conceallevel })
 end, { desc = 'Toggle Conceal Level' })
 
+map('n', '<leader>ud', function()
+  require('util').toggle_diagnostics()
+end, { desc = 'Toggle [d]iagnostics' })
+
 map('n', '<leader>nt', function()
   local todo = require('util').find_git_root() .. '/todo.md' -- default project todo if exists
   if vim.fn.filereadable(todo) == 1 then
