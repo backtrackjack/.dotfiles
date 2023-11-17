@@ -13,6 +13,9 @@ return {
       vim.cmd [[
         imap <silent><script><expr> <c-y> copilot#Accept("\<cr>")
         let g:copilot_no_tab_map = v:true
+        let g:copilot_filetypes = {
+          \ '*': v:true,
+        \ }
       ]]
     end,
   },
