@@ -66,9 +66,6 @@ return {
       enable = true,
       disable = { 'yaml' },
     },
-    context_commentstring = {
-      enable = true,
-    },
     rainbow = {
       enable = true,
     },
