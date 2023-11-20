@@ -2,6 +2,7 @@ return {
   'tpope/vim-fugitive', -- GIT
   lazy = false,
   dependencies = {
+    'tpope/vim-dispatch',
     'tommcdo/vim-fubitive',
     'tpope/vim-rhubarb',
   },
