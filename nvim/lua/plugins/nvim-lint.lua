@@ -6,10 +6,9 @@ return {
   opts = {
     events = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
     linters_by_ft = {
-      markdown = { 'vale' },
       json = { 'jsonlint' },
       yaml = { 'yamllint' },
-      ['*'] = { 'woke' },
+      ['*'] = { 'woke', 'vale' },
     },
     linters = {},
   },

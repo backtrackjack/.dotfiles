@@ -1,6 +1,6 @@
 # My Neovim configuration
 
-if my plugin count != 69 I have failed
+if plugin count != 69
 
 Inspired by and code yoinked from:
 - [Jess Archer](https://github.com/jessarcher/dotfiles/tree/master/nvim)
