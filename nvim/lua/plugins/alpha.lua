@@ -25,17 +25,8 @@ return {
       dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
     }
 
-    -- lsp highlights prefixed with `@` don't have a background color
-    ---@diagnostic disable-next-line: unused-local
-    local fg_only_highlights = vim.tbl_filter(function(v)
-      return string.find(v, '@') ~= nil and string.find(v, '@text.uri') == nil and string.find(v, '@text.underline') == nil
-    end, vim.fn.getcompletion('', 'highlight'))
-
-    ---@diagnostic disable-next-line: unused-local
-    local all_highlights = vim.fn.getcompletion('', 'highlight')
-
-    local header_hl = fg_only_highlights[math.random(#fg_only_highlights)]
-    local button_hl = fg_only_highlights[math.random(#fg_only_highlights)]
+    local header_hl = 'String'
+    local button_hl = 'vimCommentTitle'
 
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = button_hl

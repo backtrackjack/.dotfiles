@@ -5,7 +5,7 @@ return {
     lazy = true,
     config = false,
     init = function()
-      -- Disable automatic setup, we are doing it manually
+      -- Disable automatic setup, it is done manually
       vim.g.lsp_zero_extend_cmp = 0
       vim.g.lsp_zero_extend_lspconfig = 0
     end,
@@ -21,7 +21,7 @@ return {
       'nvim-telescope/telescope.nvim',
     },
     config = function()
-      -- This is where all the LSP shenanigans will live
+      -- This is where all the LSP shenanigans live
       local lsp_zero = require 'lsp-zero'
       local lspconfig = require 'lspconfig'
 
@@ -109,7 +109,7 @@ return {
                 client.server_capabilities.documentFormattingProvider = false
                 client.server_capabilities.documentRangeFormattingProvider = false
               end,
-              -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
+              -- Enable "Take Over Mode" where volar provide all JS/TS LSP services
               -- This drastically improves the responsiveness of diagnostic updates on change
               filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
             }
