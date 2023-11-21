@@ -1,10 +1,9 @@
 return {
-  'navarasu/onedark.nvim',
+  'ribru17/bamboo.nvim',
+  lazy = false,
   config = function()
-    local onedark = require 'onedark'
-    onedark.setup {
-      style = 'warmer',
-    }
-    onedark.load()
+    local bamboo = require 'bamboo'
+    bamboo.setup()
+    bamboo.load()
   end,
 }
