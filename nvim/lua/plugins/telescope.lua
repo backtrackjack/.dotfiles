@@ -13,11 +13,11 @@ return {
         end
       },
       'nvim-tree/nvim-web-devicons',
+      'folke/trouble.nvim',
     },
     cmd = { 'Telescope' },
     keys = {
       {
-        -- FIXME: not working
         '<leader>sG',
         function()
           local git_root = require('util').find_git_root()
@@ -162,6 +162,7 @@ return {
               ['<esc>'] = actions.close,
               ['<Down>'] = actions.cycle_history_next,
               ['<Up>'] = actions.cycle_history_prev,
+              ['<c-t>'] = require('trouble.providers.telescope').open_with_trouble,
             },
           },
           file_ignore_patterns = { '.git/' },

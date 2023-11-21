@@ -1,6 +1,10 @@
 return {
   'folke/todo-comments.nvim',
-  lazy = false,
+  dependencies = {
+    'folke/trouble.nvim',
+    'nvim-telescope/telescope.nvim',
+  },
+  cmd = { 'TodoTrouble' },
   config = true,
   keys = {
     {
@@ -17,7 +21,9 @@ return {
       end,
       desc = 'Previous [t]odo comment',
     },
-    { '<leader>xT', '<cmd>TodoTrouble<cr>', desc = '[T]odo list (all)' },
-    { '<leader>xt', '<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>', desc = '[t]odo/Fix/Fixme list' },
+    { '<leader>xt', '<cmd>TodoTrouble<cr>', desc = '[t]odo list (all)' },
+    { '<leader>xT', '<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>', desc = '[T]odo/Fix/Fixme list' },
+    { '<leader>st', '<cmd>TodoTelescope<cr>', desc = '[t]odo' },
+    { '<leader>sT', '<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>', desc = '[T]odo/Fix/Fixme' },
   },
 }
