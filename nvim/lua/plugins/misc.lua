@@ -3,6 +3,7 @@ return {
   { 'tpope/vim-sleuth' }, -- auto detect indentation
   { 'LunarVim/bigfile.nvim' }, -- better performance on big files
   { 'monaqa/dial.nvim' }, -- increment/decrement numbers
+  { 'airblade/vim-rooter' },
   {
     'whatyouhide/vim-textobj-xmlattr', -- Text objects for HTML attributes
     dependencies = 'kana/vim-textobj-user',

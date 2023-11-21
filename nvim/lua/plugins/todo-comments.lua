@@ -1,10 +1,11 @@
 return {
   'folke/todo-comments.nvim',
+  event = "VeryLazy",
   dependencies = {
     'folke/trouble.nvim',
     'nvim-telescope/telescope.nvim',
   },
-  cmd = { 'TodoTrouble' },
+  cmd = { 'TodoTrouble', 'TodoTelescope' },
   config = true,
   keys = {
     {
