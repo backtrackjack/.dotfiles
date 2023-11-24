@@ -21,7 +21,6 @@ return {
       'solargraph',
       'stylua',
       'tailwindcss-language-server',
-      'typescript-language-server',
       'vue-language-server',
       'woke',
       'xmlformatter',

@@ -33,11 +33,9 @@ return {
           vim.keymap.set(mode, lhs, rhs, opts)
         end
 
-        -- pull
         map('n', '<leader>P', ':Git push<cr>', { desc = '[P]ush' })
 
-        -- rebase always
-        map('n', '<leader>p', ':Git pull --rebase<cr>', { desc = '[p]ull' })
+        map('n', '<leader>p', ':Git pull <cr>', { desc = '[p]ull' })
 
         -- track branch
         map('n', '<leader>T', ':Git push -u origin ', { desc = '[T]rack branch' })
