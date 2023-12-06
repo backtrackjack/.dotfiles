@@ -5,7 +5,6 @@ return {
   lazy = false,
   opts = {
     ensure_installed = {
-      'alex',
       'blade-formatter',
       'html-lsp',
       'intelephense',
@@ -22,7 +21,6 @@ return {
       'stylua',
       'tailwindcss-language-server',
       'vue-language-server',
-      'woke',
       'xmlformatter',
       'yamllint',
     },
