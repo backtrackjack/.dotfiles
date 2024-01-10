@@ -1,5 +1,9 @@
 local wezterm = require 'wezterm'
 
+wezterm.on('format-window-title', function(tab, _pane, _tabs, _panes, _config)
+    return tab.active_pane.title
+end)
+
 local config = {}
 
 if wezterm.config_builder then
