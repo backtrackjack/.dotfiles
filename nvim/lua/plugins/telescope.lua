@@ -163,6 +163,7 @@ return {
               ['<Down>'] = actions.cycle_history_next,
               ['<Up>'] = actions.cycle_history_prev,
               ['<c-t>'] = require('trouble.providers.telescope').open_with_trouble,
+              ['<c-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
             },
           },
           file_ignore_patterns = { '.git/' },

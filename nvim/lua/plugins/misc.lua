@@ -29,6 +29,7 @@ return {
   },
   {
     'chrishrb/gx.nvim', -- go to URL under cursor
+    keys = { { 'gx', '<cmd>Browse<cr>', mode = { 'n', 'x' } } },
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = true,
   },
