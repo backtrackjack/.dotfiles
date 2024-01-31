@@ -3,7 +3,9 @@ return {
   lazy = false,
   config = function()
     local bamboo = require 'bamboo'
-    bamboo.setup()
+    bamboo.setup {
+      style = 'multiplex',
+    }
     bamboo.load()
   end,
 }
