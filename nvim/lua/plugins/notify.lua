@@ -33,7 +33,7 @@ return {
       require('plenary.job')
         :new({
           command = 'curl',
-          args = { 'https://vtip.43z.one' },
+          args = { 'https://www.vimiscool.tech/neotip?vim' },
           on_exit = function(j, exit_code)
             local res = table.concat(j:result())
             if exit_code ~= 0 then
