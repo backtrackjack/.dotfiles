@@ -53,7 +53,7 @@ return {
         lualine_x = {
           {
             function()
-              local key = require('grapple').key()
+              local key = require('grapple').name_or_index()
               return '  [' .. key .. ']'
             end,
             cond = require('grapple').exists,
