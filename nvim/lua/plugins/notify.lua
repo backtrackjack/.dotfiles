@@ -29,20 +29,6 @@ return {
     end,
     config = function(_, opts)
       require('notify').setup(opts)
-      -- show tip on startup
-      require('plenary.job')
-        :new({
-          command = 'curl',
-          args = { 'https://www.vimiscool.tech/neotip?vim' },
-          on_exit = function(j, exit_code)
-            local res = table.concat(j:result())
-            if exit_code ~= 0 then
-              res = 'Error fetching tip: ' .. res
-            end
-            require 'notify'(res, 2, { title = 'Tip!' })
-          end,
-        })
-        :start()
     end,
   },
 }
