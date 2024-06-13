@@ -9,6 +9,7 @@ vim.g.maplocalleader = ' '
 require 'options'
 require 'mappings'
 require 'autocommands'
+require 'misc'
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim

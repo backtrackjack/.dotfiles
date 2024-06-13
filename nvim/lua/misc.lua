@@ -1,0 +1,2 @@
+-- TODO: this
+-- vim.api.nvim_create_user_command('Phpstorm', '!sh -c "open -a phpstorm --args"', {})
