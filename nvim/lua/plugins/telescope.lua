@@ -148,7 +148,6 @@ return {
             prompt_position = 'top',
           },
           preview = {
-            timeout = 200,
             treesitter = false,
           },
           sorting_strategy = 'ascending',
@@ -157,7 +156,7 @@ return {
               ['<esc>'] = actions.close,
               ['<Down>'] = actions.cycle_history_next,
               ['<Up>'] = actions.cycle_history_prev,
-              ['<c-t>'] = require('trouble.providers.telescope').open_with_trouble,
+              ['<c-t>'] = require('trouble.sources.telescope').open,
               ['<c-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
             },
           },
