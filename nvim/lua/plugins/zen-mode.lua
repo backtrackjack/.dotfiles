@@ -6,10 +6,4 @@ return {
       { noremap = true, silent = true },
     }
   },
-  opts = {
-    window = {
-      width = 90,
-      options = {}
-    }
-  }
 }

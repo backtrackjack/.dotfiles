@@ -18,6 +18,9 @@ ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
 rm -rf "$HOME"/.config/lazygit
 ln -s "$DOTFILES"/lazygit "$HOME"/.config/lazygit
 
+rm -rf "$HOME"/.ideavimrc
+ln -sf "$DOTFILES"/ideavim/.ideavimrc "$HOME"/.ideavimrc
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi

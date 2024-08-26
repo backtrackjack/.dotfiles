@@ -135,7 +135,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias gitpretty="git log --all --decorate --oneline --graph"
 alias oldbrew="arm /usr/local/bin/brew"
 alias ls="lsd"
-alias a="artisan"
+alias a="php artisan"
 alias phpstorm='open -na "PhpStorm.app" --args "$@"'
 
 nah() {
