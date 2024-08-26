@@ -1,0 +1,70 @@
+" some change
+" Action list: https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+" Don't use noremap on <Action> mappings
+
+" Proper search
+set ignorecase
+set smartcase
+set gdefault
+
+" Button Mappings
+let mapleader=" "
+
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+
+" Apparently the second greatest remap ever - theprimeagen
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nmap <leader>y "+y
+
+nnoremap <leader>d "+d
+vnoremap <leader>d "+d
+
+" yank to eol
+nnoremap Y y$
+
+" Paste replace visual selection without copying it
+xnoremap p "_dP
+
+" append ; or , from insert mode
+inoremap ;; <Esc>A;<Esc>
+inoremap ,, <Esc>A,<Esc>
+
+" reselect after indent
+vnoremap > >gv
+vnoremap < <gv
+
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fe <Action>(ActivateProjectToolWindow)
+
+nmap <leader>ss <Action>(GotoSymbol)
+
+vmap <leader>cf <Action>(ReformatCode)
+nmap <leader>cf <Action>(ReformatCode)
+
+" search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> n nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+set visualbell
+set showmode
+set wrapscan
+set incsearch
+set scrolloff=8
+set number
+set relativenumber
+set timeoutlen=300
+
+" Idea specific settings
+set ideajoin
