@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- remove colorcolumn for some filetypes
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup 'no_colorcolumn_html',
-  pattern = { 'html', 'blade', 'eruby' },
+  pattern = { 'html', 'blade', 'eruby', 'vue' },
   callback = function()
     vim.opt_local.colorcolumn = ''
   end,

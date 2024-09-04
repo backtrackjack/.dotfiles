@@ -12,7 +12,6 @@ return {
       'json-lsp',
       'jsonlint',
       'lua-language-server',
-      'phpactor',
       'pint',
       'prettierd',
       'rust-analyzer',
