@@ -3,6 +3,12 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
+if ! command -v brew &>/dev/null; then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew bundle --file="$DOTFILES"/Brewfile
+
 ln -sf "$DOTFILES"/zsh/zshrc "$HOME"/.zshrc
 
 rm -rf "$HOME"/.tmux
@@ -21,3 +27,5 @@ ln -sf "$DOTFILES"/ideavim/.ideavimrc "$HOME"/.ideavimrc
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+ansible-playbook secrets.yml --ask-vault-pass

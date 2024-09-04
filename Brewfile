@@ -1,3 +1,23 @@
+# Packages
+brew "ansible"
 brew "neovim"
 brew "ripgrep"
 brew "pngpaste"
+brew "npm"
+brew "composer"
+brew "php"
+brew "lazygit"
+brew "lsd"
+brew "fzf"
+brew "tmux"
+brew "sqlite"
+brew "mysql"
+
+# Casks
+cask "kitty"
+cask "arc"
+cask "herd"
+cask "docker"
+cask "amethyst"
+cask "raycast"
+cask "tableplus"
