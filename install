@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # ripped off https://github.com/jessarcher/dotfiles/blob/master/install
 
+# mononoki nerd font: https://madmalik.github.io/mononoki/
+
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 # install homebrew if it's not already installed
