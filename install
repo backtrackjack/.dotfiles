@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # ripped off https://github.com/jessarcher/dotfiles/blob/master/install
 
-# mononoki nerd font: https://madmalik.github.io/mononoki/
-
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 # install homebrew if it's not already installed
@@ -31,4 +29,5 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+ansible-playbook fonts/fonts.yml
 ansible-playbook secrets.yml --ask-vault-pass

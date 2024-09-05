@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - name: install mononoki
+      ansible.builtin.uri:
+        url: https://github.com/madmalik/mononoki/releases/download/1.6/mononoki.zip
+        dest: ./mononoki.zip
+        creates: ./mononoki.zip
+    - name: unzip mononoki
+      ansible.builtin.unarchive:
+        src: ./mononoki.zip
+        dest: ~/Library/Fonts
