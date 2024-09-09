@@ -30,4 +30,4 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 ansible-playbook fonts/fonts.yml
-ansible-playbook secrets.yml --ask-vault-pass
+ansible-playbook secrets/secrets.yml --ask-vault-pass
