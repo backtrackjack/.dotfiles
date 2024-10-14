@@ -85,6 +85,7 @@ return {
           ['ia'] = '@parameter.inner',
           ['aa'] = '@parameter.outer',
           ['ac'] = '@comment.outer',
+          ['ic'] = '@comment.inner',
         },
       },
       swap = {

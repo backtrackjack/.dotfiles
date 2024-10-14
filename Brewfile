@@ -11,7 +11,6 @@ brew "lsd"
 brew "fzf"
 brew "tmux"
 brew "sqlite"
-brew "mysql"
 
 # Casks
 cask "kitty"
@@ -22,3 +21,4 @@ cask "amethyst"
 cask "obsidian"
 cask "raycast"
 cask "tableplus"
+cask "dbngin"
