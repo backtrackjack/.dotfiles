@@ -14,11 +14,16 @@ brew "sqlite"
 
 # Casks
 cask "kitty"
-cask "arc"
-cask "herd"
 cask "docker"
-cask "amethyst"
 cask "obsidian"
 cask "raycast"
 cask "tableplus"
+cask "font-mononoki-nerd-font"
+cask "ngrok"
+
+## Mac Casks
+cask "arc"
+cask "herd"
+cask "amethyst"
 cask "dbngin"
+cask "unnaturalscrollwheels"
