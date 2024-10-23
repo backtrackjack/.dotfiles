@@ -29,5 +29,4 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-ansible-playbook fonts/fonts.yml
 ansible-playbook secrets/secrets.yml --ask-vault-pass
