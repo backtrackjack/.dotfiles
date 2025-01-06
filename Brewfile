@@ -27,3 +27,4 @@ cask "herd"
 cask "amethyst" ## TODO: try aerospace
 cask "dbngin"
 cask "unnaturalscrollwheels"
+cask "xnapper"
