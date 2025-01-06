@@ -1,0 +1,9 @@
+theme = Monokai Soda
+font-family = Mononoki Nerd Font
+font-size = 24
+window-padding-x = 20
+window-padding-y = 20
+window-width = 140
+window-height = 35
+window-save-state = always
+auto-update = download

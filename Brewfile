@@ -13,7 +13,7 @@ brew "tmux"
 brew "sqlite"
 
 # Casks
-cask "kitty"
+cask "ghostty"
 cask "docker"
 cask "obsidian"
 cask "raycast"
