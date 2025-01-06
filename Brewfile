@@ -24,6 +24,6 @@ cask "ngrok"
 ## Mac Casks
 cask "arc"
 cask "herd"
-cask "amethyst"
+cask "amethyst" ## TODO: try aerospace
 cask "dbngin"
 cask "unnaturalscrollwheels"
