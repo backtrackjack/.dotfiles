@@ -14,7 +14,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH=$HOME/Development/node-v18.7.0/bin:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-export CC="/opt/homebrew/opt/llvm/bin/clang"
+export CC="/usr/bin/gcc"
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Path to your oh-my-zsh installation.
@@ -182,29 +182,32 @@ eval "$(rbenv init - zsh)"
 #export GEM_SPEC_CACHE=/Users/jsellars/.rbenv/versions/3.1.2/lib/ruby/gems/specs
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
-eval $(thefuck --alias)
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Herd injected PHP 8.1 configuration.
-export HERD_PHP_81_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/81/"
+export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
 
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/82/"
 
 # Herd injected PHP binary.
 export PATH="/Users/jsellars/Library/Application Support/Herd/bin/":$PATH
 
-# Herd injected NVM configuration
-export NVM_DIR="/Users/jsellars/Library/Application Support/Herd/config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/82/"
+
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/81/"
+
 
 # Herd injected PHP 8.0 configuration.
 export HERD_PHP_80_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/80/"
 
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/83/"
+
+export PATH=/Users/Shared/DBngin/mysql/8.0.33/bin:$PATH
+
+
 # Herd injected PHP 7.4 configuration.
 export HERD_PHP_74_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/74/"
-
-export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
