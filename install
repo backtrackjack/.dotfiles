@@ -16,8 +16,8 @@ rm -rf "$HOME"/.tmux
 ln -s "$DOTFILES"/tmux/.tmux "$HOME"/.tmux
 ln -sf "$DOTFILES"/tmux/tmux.conf "$HOME"/.tmux.conf
 
-rm -rf "$HOME"/.config/ghostty
-ln -s "$DOTFILES"/ghostty "$HOME"/.config/ghostty
+rm -rf "$HOME"/Library/Application\ Support/com.mitchellh.ghostty/config
+ln -s "$DOTFILES"/ghostty/config "$HOME"/Library/Application\ Support/com.mitchellh.ghostty/config
 
 rm -rf "$HOME"/.config/nvim
 ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
