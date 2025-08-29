@@ -19,6 +19,9 @@ ln -sf "$DOTFILES"/tmux/tmux.conf "$HOME"/.tmux.conf
 rm -rf "$HOME"/Library/Application\ Support/com.mitchellh.ghostty/config
 ln -s "$DOTFILES"/ghostty/config "$HOME"/Library/Application\ Support/com.mitchellh.ghostty/config
 
+rm -rf "$HOME"/.config/aerospace
+ln -s "$DOTFILES"/aerospace/aerospace.toml "$HOME"/.config/aerospace/aerospace.toml
+
 rm -rf "$HOME"/.config/nvim
 ln -s "$DOTFILES"/nvim "$HOME"/.config/nvim
 

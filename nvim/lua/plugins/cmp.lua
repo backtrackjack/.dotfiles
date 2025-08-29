@@ -6,7 +6,7 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
-    'L3MON4D3/LuaSnip',
+    { 'L3MON4D3/LuaSnip', version = 'v2.3' },
     'saadparwaiz1/cmp_luasnip',
     'rafamadriz/friendly-snippets',
     'VonHeikemen/lsp-zero.nvim',
@@ -23,7 +23,7 @@ return {
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
 
-    luasnip.filetype_extend("blade", { "html" }) -- use html snippets in blade files
+    luasnip.filetype_extend('blade', { 'html' }) -- use html snippets in blade files
 
     local has_words_before = function()
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))

@@ -113,6 +113,11 @@ return {
               },
             }
           end,
+
+          -- SQL
+          sqlls = function()
+            lspconfig.sqlls.setup{}
+          end,
         },
       }
 

@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.indentscope',
+  'nvim-mini/mini.indentscope',
   opts = {
     draw = {
       animation = function(s, n)

@@ -1,3 +1,4 @@
+-- check out laravel nvim
 -- enable byte-compilation (:help lua-loader)
 vim.loader.enable()
 
@@ -34,7 +35,7 @@ require('lazy').setup {
     { import = 'plugins/mini' }, -- 'lua/plugins/mini/*.lua'
   },
   checker = { enabled = true }, -- automatically detect plugin updates
-  install = { colorscheme = { 'bamboo', 'habamax' } },
+  install = { colorscheme = { 'everforest', 'bamboo', 'habamax' } },
   performance = {
     rtp = {
       -- turn off some rtp plugins

@@ -1,6 +1,6 @@
 return {
   {
-    'echasnovski/mini.clue',
+    'nvim-mini/mini.clue',
     version = '*',
     init = function()
       local miniclue = require 'mini.clue'

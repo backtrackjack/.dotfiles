@@ -31,7 +31,12 @@ return {
     },
     daily_notes = {
       folder = 'dailies',
-      date_format = '%d-%m-%Y',
+      date_format = '%Y-%m-%d, %d %b',
+    },
+    templates = {
+      folder = "templates",
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
     },
     note_id_func = function(title)
       local suffix = ''

@@ -22,6 +22,7 @@ return {
       'vue-language-server',
       'xmlformatter',
       'yamllint',
+      'sqlfmt',
     },
   },
   config = function(_, opts)

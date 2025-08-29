@@ -12,6 +12,7 @@ export PATH=$HOME/Development/flutter/bin:$PATH
 export PATH=$HOME/bin:~/.composer/vendor/bin:$PATH
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH=$HOME/Development/node-v18.7.0/bin:$PATH
+export PATH="$(brew --prefix)/opt/homebrew/bin/python3.11:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export CC="/usr/bin/gcc"
@@ -101,7 +102,6 @@ plugins=(
 	fzf
 	rust
 	sudo
-	tmux
 	rbenv
 	tmux
 )
@@ -138,11 +138,12 @@ alias hxconfig="hx ~/.config/helix/config.toml"
 alias vi="nvim"
 alias refrezsh="source ~/.zshrc"
 alias myip="curl http://ipecho.net/plain; echo"
-alias gitpretty="git log --all --decorate --oneline --graph"
+alias gitpretty="git log --all --decorate --oneline --graph --parents"
 alias oldbrew="arm /usr/local/bin/brew"
 alias ls="lsd"
 alias a="php artisan"
 alias phpstorm='open -na "PhpStorm.app" --args "$@"'
+alias python312="python3.12"
 
 if [[ "$TERM" == "xterm-kitty" ]]; then
 	alias ssh="kitten ssh"
@@ -211,3 +212,7 @@ export PATH=/Users/Shared/DBngin/mysql/8.0.33/bin:$PATH
 
 # Herd injected PHP 7.4 configuration.
 export HERD_PHP_74_INI_SCAN_DIR="/Users/jsellars/Library/Application Support/Herd/config/php/74/"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+export PATH=$PATH:$HOME/go/bin
