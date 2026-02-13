@@ -5,6 +5,7 @@ return {
   lazy = false,
   opts = {
     ensure_installed = {
+      'copilot-language-server',
       'blade-formatter',
       'html-lsp',
       'intelephense',

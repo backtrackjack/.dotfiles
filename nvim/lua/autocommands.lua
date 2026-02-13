@@ -112,3 +112,10 @@ vim.api.nvim_create_autocmd({ 'VimResized' }, {
     vim.cmd 'tabdo wincmd ='
   end,
 })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = augroup 'set_titlestring',
+  callback = function()
+    vim.cmd 'let&titlestring = expand("%:t")'
+  end,
+});
